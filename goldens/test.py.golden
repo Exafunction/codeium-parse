@@ -1,0 +1,41 @@
+Name: Pattern0
+Doc:
+"""Pattern 0 docstring."""
+Definition (definition.class):
+class Pattern0:
+    """Pattern 0 docstring."""
+
+Name: Pattern0NoDoc
+Definition (definition.class):
+class Pattern0NoDoc:
+    def pattern1(self):
+        pass
+    """Not a docstring."""
+
+Name: pattern1
+Parameters: (self)
+Definition (definition.function):
+def pattern1(self):
+        pass
+Lineage: [Pattern0NoDoc]
+
+Name: pattern1
+Parameters: (param1)
+Doc:
+'Pattern 1 docstring.'
+Definition (definition.function):
+def pattern1(param1):
+    # Docstring doesn't come immediately after. Also tests single quotes.
+    'Pattern 1 docstring.'
+
+Name: Pattern2a
+Reference (reference.call):
+Pattern2a()
+
+Name: pattern2b
+Reference (reference.call):
+pattern2b(1)
+
+Name: foo
+Reference (reference.call):
+Pattern2a.foo()
