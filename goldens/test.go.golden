@@ -1,0 +1,71 @@
+Name: Pattern0
+Doc:
+// Pattern 0.
+Definition (definition.class):
+type Pattern0 struct {
+	a string
+}
+
+Name: Pattern1
+Doc:
+// Pattern 1.
+Definition (definition.interface):
+type Pattern1 interface {
+	a() string
+}
+
+Name: Pattern2
+Parameters: ()
+Definition (definition.function):
+func Pattern2() {}
+
+Name: Method
+Parameters: (string)
+Doc:
+// Comments
+// here.
+Definition (definition.method):
+func (p *Pattern0) Method(string) {}
+Lineage: [*Pattern0]
+
+Name: Method2
+Parameters: (a string)
+Definition (definition.method):
+func (p Pattern0) Method2(a string) string {
+	Pattern2()
+	s := &Pattern0{}
+	s.Method("")
+	((*Pattern0)(s)).Method("")
+	var s2 any
+	s2.(*Pattern0).Method("")
+	return a
+}
+Lineage: [Pattern0]
+
+Name: Pattern2
+Parameters: ()
+Reference (reference.call):
+Pattern2()
+
+Name: Pattern0
+Reference (reference.class):
+Pattern0{}
+
+Name: Method
+Parameters: ("")
+Reference (reference.call):
+s.Method("")
+
+Name: Method
+Parameters: ("")
+Reference (reference.call):
+((*Pattern0)(s)).Method("")
+
+Name: Method
+Parameters: ("")
+Reference (reference.call):
+s2.(*Pattern0).Method("")
+
+Name: Alias
+Definition (definition.type):
+Alias string
