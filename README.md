@@ -129,6 +129,7 @@ Need a predicate which hasn't been implemented? [File an issue!](https://github.
 
 ```console
 $ ./parse -supported_languages
+ada
 c
 cpp
 csharp
