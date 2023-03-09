@@ -6,3 +6,4 @@ VERSION="v0.0.2"
 rm -f parse.gz parse
 curl -Lo parse.gz "https://github.com/Exafunction/codeium-parse/releases/download/$VERSION/parse.gz"
 gzip -d parse.gz
+chmod +x parse
