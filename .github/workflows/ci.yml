@@ -15,7 +15,6 @@ jobs:
       uses: actions/checkout@v3
       with:
         ref: ${{ github.event.pull_request.head.sha || github.sha }}
-        token: ${{ secrets.ACTIONS }}
     - name: Download parse binary
       run: ./download_parse.sh
     - name: Run tests
