@@ -15,10 +15,12 @@
 
 # codeium-parse
 
-This repository contains tools built with [tree-sitter](https://github.com/tree-sitter/tree-sitter) that let you:
+_A command line tool for parsing code syntax_
+
+This repository contains a binary built with [tree-sitter](https://github.com/tree-sitter/tree-sitter) that let you:
 * Inspect the concrete syntax tree of a source file
 * Use pre-written tree-sitter query files to locate important symbols in source code
-* Optionally format output in JSON to use the results in your own applications
+* Format output in JSON to use the results in your own applications
 
 Contributions welcome. These queries are used by Codeium Search to index your
 code locally for semantic search! Adding queries for your language here will
@@ -29,7 +31,21 @@ In particular, this repo provides a binary prepackaged with:
 * A large number of tree-sitter grammars
 * An implementation of many common query predicates
 
-## Usage example
+## Example
+
+```shell
+# Print all names and arguments from function definitions.
+# Requires fd and jq.
+fd -e js \
+  | xargs -i ./parse -quiet -use_tags_query -json -json_include_path -file '{}' \
+  | jq -r '.
+    | select(.captures."definition.function" != null)
+    | .file + ":" + .captures.name[0].text + .captures."codeium.parameters"[0].text'
+# Output:
+# examples/example.js:add(a, b)
+```
+
+## Getting started
 
 ```console
 $ ./download_parse.sh
