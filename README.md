@@ -15,21 +15,19 @@
 
 # codeium-parse
 
-_A command line tool for parsing code syntax_
+## _A command line tool for parsing code syntax_
 
-This repository contains a binary built with [tree-sitter](https://github.com/tree-sitter/tree-sitter) that let you:
+This repository contains a binary built with [tree-sitter](https://github.com/tree-sitter/tree-sitter) that lets you:
 * Inspect the concrete syntax tree of a source file
 * Use pre-written tree-sitter query files to locate important symbols in source code
 * Format output in JSON to use the results in your own applications
-
-Contributions welcome. These queries are used by Codeium Search to index your
-code locally for semantic search! Adding queries for your language here will
-enable Codeium Search to work better on your own code!
 
 In particular, this repo provides a binary prepackaged with:
 * A recent version of the tree-sitter library
 * A large number of tree-sitter grammars
 * An implementation of many common query predicates
+
+Contributions are welcome and we encourage using this tool for any applications that involve code syntax analysis. For example, these queries are used by [Codeium Search](https://www.codeium.com/about_codeium_search) to index code locally for repo-wide semantic search. If you use Codeium Search, adding queries for your language here will enable it to work better on your own code!
 
 ## Example
 
