@@ -39,3 +39,37 @@ pattern2b(1)
 Name: foo
 Reference (reference.call):
 Pattern2a.foo()
+
+Name: DecoratedClass
+Doc:
+"""Decorated class docstring."""
+Definition (definition.class):
+@decorated1
+@decorated2
+class DecoratedClass:
+    """Decorated class docstring."""
+    @decorated1
+    @decorated2
+    def decorated_method(self):
+        """Decorated method docstring."""
+
+Name: decorated_method
+Parameters: (self)
+Doc:
+"""Decorated method docstring."""
+Definition (definition.function):
+@decorated1
+    @decorated2
+    def decorated_method(self):
+        """Decorated method docstring."""
+Lineage: [DecoratedClass]
+
+Name: decorated_function
+Parameters: ()
+Doc:
+"""Decorated function docstring."""
+Definition (definition.function):
+@decorated1
+@decorated2
+def decorated_function():
+    """Decorated function docstring."""
