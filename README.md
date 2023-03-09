@@ -31,9 +31,10 @@ Contributions are welcome and we encourage using this tool for any applications 
 
 ## Example
 
+(Requires [fd](https://github.com/sharkdp/fd) and [jq](https://github.com/stedolan/jq).)
+
 ```shell
 # Print all names and arguments from function definitions.
-# Requires fd and jq.
 fd -e js \
   | xargs -i ./parse -quiet -use_tags_query -json -json_include_path -file '{}' \
   | jq -r '.
