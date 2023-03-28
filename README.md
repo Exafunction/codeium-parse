@@ -151,6 +151,7 @@ latex
 markdown
 ocaml
 ocaml_interface
+perl
 php
 protobuf
 python
