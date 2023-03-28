@@ -84,6 +84,7 @@ Most captures also include documentation as `@doc`. `@definition.function` and `
 | `@definition.type`      | N/A    | ✅         | N/A        | ✅  |
 | `@definition.constant`  | ❌     | ❌         | ❌         | ❌  |
 | `@definition.enum`      | ❌     | ❌         | ❌         | ❌  |
+| `@definition.import`    | ❌     | ✅         | ✅         | ❌  |
 | `@reference.call`       | ✅     | ✅         | ✅         | ✅  |
 | `@reference.class`      | ✅[^2] | ✅         | ✅         | ✅  |
 
@@ -118,6 +119,10 @@ $ ./parse -supported_predicates
     Selects @capture nodes contiguous with @anchor (all starting and ending on
     adjacent lines).
 
+#set!
+    (#set! key value)
+    Store metadata as a side effect of a match.
+
 #strip!
     (#strip! @capture "regex")
     Removes all matching text from all @capture nodes.
@@ -144,6 +149,8 @@ json
 kotlin
 latex
 markdown
+ocaml
+ocaml_interface
 php
 protobuf
 python
@@ -151,6 +158,7 @@ ruby
 rust
 shell
 svelte
+swift
 toml
 tsx
 typescript

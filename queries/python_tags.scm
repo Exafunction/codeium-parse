@@ -11,7 +11,7 @@
   (function_definition
     name: (identifier) @name
     parameters: (parameters) @codeium.parameters
-    body: (block . (expression_statement . (string) @doc .)?)) @definition.function
+    body: (block . (expression_statement . (string) @doc .)?) @body) @definition.function
   (#not-has-parent? @definition.function decorated_definition)
 )
 
@@ -36,5 +36,5 @@
     definition: (function_definition
       name: (identifier) @name
       parameters: (parameters) @codeium.parameters
-      body: (block . (expression_statement . (string) @doc .)?))) @definition.function
+      body: (block . (expression_statement . (string) @doc .)?) @body)) @definition.function
 )

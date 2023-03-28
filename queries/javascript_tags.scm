@@ -31,6 +31,7 @@
       body: (class_body)) @_) @definition.class
   (#has-type? @_ class_declaration abstract_class_declaration)
   (#select-adjacent! @doc @definition.class)
+  (#set! is_export true)
 )
 
 ;; Pattern 2 from tags.scm.
@@ -57,6 +58,7 @@
       parameters: (formal_parameters) @codeium.parameters) @_) @definition.function
   (#has-type? @_ function_declaration function_signature generator_function_declaration)
   (#select-adjacent! @doc @definition.function)
+  (#set! is_export true)
 )
 
 ;; Pattern 3 from tags.scm.
@@ -93,6 +95,7 @@
         ])) @_) @definition.function
   (#has-type? @_ lexical_declaration variable_declaration)
   (#select-adjacent! @doc @definition.function)
+  (#set! is_export true)
 )
 
 ;; 6. Pattern 5 from tags.scm.
@@ -172,4 +175,5 @@
         value: (class))) @_) @definition.class
   (#has-type? @_ lexical_declaration variable_declaration)
   (#select-adjacent! @doc @definition.class)
+  (#set! is_export true)
 )
