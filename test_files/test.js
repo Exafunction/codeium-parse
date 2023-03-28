@@ -1,3 +1,9 @@
+import { named1, named2 as alias2, named3 as alias3 } from "path/to/file/1";
+import default1 from "path/to/file/2";
+import default2, { named4 as alias4 } from 'npm-lib-1'
+import * as entireModule from "npm-lib-2";
+import "./side-effects-only-1.js";
+
 const fs = require('fs');
 
 /**
@@ -9,6 +15,7 @@ class Pattern1a {
    * Pattern 0 comment.
    */
   pattern0(param1) {
+    const moment = require('moment');
     return param1;
   }
 }

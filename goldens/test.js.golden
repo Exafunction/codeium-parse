@@ -1,3 +1,32 @@
+Name: "path/to/file/1"
+Definition (definition.import):
+import { named1, named2 as alias2, named3 as alias3 } from "path/to/file/1";
+Named imports:
+    named1
+    named2 as alias2
+    named3 as alias3
+
+Name: "path/to/file/2"
+Definition (definition.import):
+import default1 from "path/to/file/2";
+Default import: default1
+
+Name: 'npm-lib-1'
+Definition (definition.import):
+import default2, { named4 as alias4 } from 'npm-lib-1'
+Default import: default2
+Named imports:
+    named4 as alias4
+
+Name: "npm-lib-2"
+Definition (definition.import):
+import * as entireModule from "npm-lib-2";
+Namespace: entireModule
+
+Name: "./side-effects-only-1.js"
+Definition (definition.import):
+import "./side-effects-only-1.js";
+
 Name: Pattern1a
 Doc:
 /**
@@ -10,6 +39,7 @@ class Pattern1a {
    * Pattern 0 comment.
    */
   pattern0(param1) {
+    const moment = require('moment');
     return param1;
   }
 }
@@ -22,6 +52,7 @@ Doc:
    */
 Definition (definition.method):
 pattern0(param1) {
+    const moment = require('moment');
     return param1;
   }
 Lineage: [Pattern1a]
@@ -31,6 +62,8 @@ Doc:
 // Pattern 1b comment.
 Definition (definition.class):
 export class Pattern1b {}
+Metadata:
+    is_export = true
 
 Name: pattern2
 Parameters: (param1)
@@ -51,6 +84,8 @@ Doc:
 // f comment.
 Definition (definition.function):
 export function f() {}
+Metadata:
+    is_export = true
 
 Name: g
 Parameters: ()
@@ -69,6 +104,8 @@ Definition (definition.function):
 export default function* pattern3(param1) {
   yield param1;
 }
+Metadata:
+    is_export = true
 
 Name: pattern4a
 Parameters: (param1)
@@ -89,6 +126,8 @@ Doc:
  */
 Definition (definition.function):
 export const pattern4b = (param1) => {};
+Metadata:
+    is_export = true
 
 Name: pattern5a
 Parameters: (param1)
@@ -100,6 +139,8 @@ Definition (definition.function):
 export var pattern5a = function (param1) {
   return param1;
 };
+Metadata:
+    is_export = true
 
 Name: pattern5b
 Parameters: (param1)
@@ -175,3 +216,5 @@ Doc:
 // Comment
 Definition (definition.class):
 export var Pattern12 = class Ignore {};
+Metadata:
+    is_export = true

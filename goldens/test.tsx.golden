@@ -1,3 +1,51 @@
+Name: "path/to/file/1"
+Definition (definition.import):
+import { named1, named2 as alias2, named3 as alias3 } from "path/to/file/1";
+Named imports:
+    named1
+    named2 as alias2
+    named3 as alias3
+
+Name: "path/to/file/2"
+Definition (definition.import):
+import default1 from "path/to/file/2";
+Default import: default1
+
+Name: "path/to/file/3"
+Definition (definition.import):
+import { named4 as alias4, named5 as alias5, type NamedType1 as AliasType1 } from "path/to/file/3";
+Named imports:
+    named4 as alias4
+    named5 as alias5
+    NamedType1 as AliasType1
+
+Name: 'npm-lib-1'
+Definition (definition.import):
+import default2, { named4 as alias4 } from 'npm-lib-1'
+Default import: default2
+Named imports:
+    named4 as alias4
+
+Name: "npm-lib-2"
+Definition (definition.import):
+import * as entireModule from "npm-lib-2";
+Namespace: entireModule
+
+Name: "path/to/file/4"
+Definition (definition.import):
+import type { NamedType2 } from "path/to/file/4";
+Named imports:
+    NamedType2
+
+Name: 'npm-lib-3'
+Definition (definition.import):
+import default3 = require('npm-lib-3');
+Default import: default3
+
+Name: "./side-effects-only-1.ts"
+Definition (definition.import):
+import "./side-effects-only-1.ts";
+
 Name: f
 Parameters: (a: string)
 Doc:
@@ -9,8 +57,15 @@ Name: f
 Parameters: (a: any)
 Definition (definition.function):
 function f(a: any): any {
+    import default4 from 'npm-lib-4';
     return a;
 }
+
+Name: 'npm-lib-4'
+Definition (definition.import):
+import default4 from 'npm-lib-4';
+Lineage: [f]
+Default import: default4
 
 Name: f2
 Parameters: (a: number)
@@ -25,11 +80,15 @@ Doc:
 /** f3 comment. */
 Definition (definition.function):
 export function f3(): void;
+Metadata:
+    is_export = true
 
 Name: f3
 Parameters: ()
 Definition (definition.function):
 export function f3(): void {}
+Metadata:
+    is_export = true
 
 Name: f4
 Parameters: ()
@@ -37,6 +96,8 @@ Doc:
 /** f4 comment. */
 Definition (definition.function):
 export declare function f4(): void;
+Metadata:
+    is_export = true
 
 Name: Foo
 Doc:
@@ -87,6 +148,8 @@ Doc:
 // *Foo3 comment.""
 Definition (definition.class):
 export declare class Foo3 {}
+Metadata:
+    is_export = true
 
 Name: Module
 Doc:
@@ -99,6 +162,8 @@ Doc:
 /** Module2 comment. */
 Definition (definition.module):
 export module Module2 {}
+Metadata:
+    is_export = true
 
 Name: 'module'
 Doc:
@@ -128,6 +193,8 @@ Doc:
 /** AbstractClass2 comment. */
 Definition (definition.class):
 export abstract class AbstractClass2 {}
+Metadata:
+    is_export = true
 
 Name: AbstractClass3
 Doc:
@@ -140,6 +207,8 @@ Doc:
 /** AbstractClass4 comment. */
 Definition (definition.class):
 export declare abstract class AbstractClass4 {}
+Metadata:
+    is_export = true
 
 Name: Interface
 Doc:
@@ -163,6 +232,8 @@ Doc:
 /** Interface2 comment. */
 Definition (definition.interface):
 export interface Interface2 {}
+Metadata:
+    is_export = true
 
 Name: Interface3
 Doc:
@@ -175,6 +246,8 @@ Doc:
 /** Interface4 comment. */
 Definition (definition.interface):
 export declare interface Interface4 {}
+Metadata:
+    is_export = true
 
 Name: FooString
 Doc:
@@ -187,6 +260,8 @@ Doc:
 /** FooString2 comment. */
 Definition (definition.type):
 export type FooString2 = string;
+Metadata:
+    is_export = true
 
 Name: FooString3
 Doc:
@@ -199,6 +274,8 @@ Doc:
 /** FooString4 comment. */
 Definition (definition.type):
 export declare type FooString4 = string;
+Metadata:
+    is_export = true
 
 Name: NamespaceFoo
 Definition (definition.namespace):
@@ -209,6 +286,8 @@ Doc:
 /** NamespaceFoo2 comment. */
 Definition (definition.namespace):
 export namespace NamespaceFoo2 {}
+Metadata:
+    is_export = true
 
 Name: NamespaceFoo3
 Doc:
@@ -221,3 +300,5 @@ Doc:
 /** NamespaceFoo4 comment. */
 Definition (definition.namespace):
 export declare namespace NamespaceFoo4 {}
+Metadata:
+    is_export = true

@@ -19,6 +19,7 @@
         name: (identifier) @name
         parameters: (formal_parameters) @codeium.parameters))) @definition.function
   (#select-adjacent! @doc @definition.function)
+  (#set! is_export true)
 )
 
 ;; method_signature/abstract_method_signature is handled in javascript_tags.scm.
@@ -45,6 +46,7 @@
         body: (class_body)) @_)) @definition.class
   (#has-type? @_ class_declaration abstract_class_declaration)
   (#select-adjacent! @doc @definition.class)
+  (#set! is_export true)
 )
 
 ;; module from tree-sitter-typescript/queries/tags.scm.
@@ -71,6 +73,7 @@
     declaration: (module
       name: (_) @name)) @definition.module
   (#select-adjacent! @doc @definition.module)
+  (#set! is_export true)
 )
 
 ;; interface from tree-sitter-typescript/queries/tags.scm.
@@ -89,6 +92,7 @@
     declaration: (interface_declaration
     name: (_) @name)) @definition.interface
   (#select-adjacent! @doc @definition.interface)
+  (#set! is_export true)
 )
 (
   (comment)* @doc
@@ -107,6 +111,7 @@
       (interface_declaration
         name: (_) @name))) @definition.interface
   (#select-adjacent! @doc @definition.interface)
+  (#set! is_export true)
 )
 
 ;; type_alias_declaration
@@ -125,6 +130,7 @@
     declaration: (type_alias_declaration
     name: (_) @name)) @definition.type
   (#select-adjacent! @doc @definition.type)
+  (#set! is_export true)
 )
 (
   (comment)* @doc
@@ -143,6 +149,7 @@
       (type_alias_declaration
         name: (_) @name))) @definition.type
   (#select-adjacent! @doc @definition.type)
+  (#set! is_export true)
 )
 
 ;; namespace
@@ -161,6 +168,7 @@
     declaration: (internal_module
     name: (_) @name)) @definition.namespace
   (#select-adjacent! @doc @definition.namespace)
+  (#set! is_export true)
 )
 (
   (comment)* @doc
@@ -179,4 +187,5 @@
       (internal_module
         name: (_) @name))) @definition.namespace
   (#select-adjacent! @doc @definition.namespace)
+  (#set! is_export true)
 )

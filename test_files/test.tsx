@@ -1,6 +1,16 @@
+import { named1, named2 as alias2, named3 as alias3 } from "path/to/file/1";
+import default1 from "path/to/file/2";
+import { named4 as alias4, named5 as alias5, type NamedType1 as AliasType1 } from "path/to/file/3";
+import default2, { named4 as alias4 } from 'npm-lib-1'
+import * as entireModule from "npm-lib-2";
+import type { NamedType2 } from "path/to/file/4";
+import default3 = require('npm-lib-3');
+import "./side-effects-only-1.ts";
+
 /** f comment. */
 function f(a: string): string;
 function f(a: any): any {
+    import default4 from 'npm-lib-4';
     return a;
 }
 /** f2 comment. */
