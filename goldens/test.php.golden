@@ -1,0 +1,44 @@
+Name: foo
+Parameters: ()
+Definition (definition.function):
+function foo()
+{
+}
+
+Name: FooInterface
+Doc:
+// FooInterface.
+Definition (definition.interface):
+interface FooInterface
+{
+    public function encode(...$numbers);
+}
+
+Name: FooClass
+Doc:
+// FooClass.
+Definition (definition.class):
+class FooClass implements FooInterface
+{
+    /**
+     * @param mixed $numbers
+     * @return string
+     */
+    public function encode(...$numbers)
+    {
+    }
+}
+
+Name: encode
+Parameters: (...$numbers)
+Doc:
+/**
+     * @param mixed $numbers
+     * @return string
+     */
+Definition (definition.method):
+public function encode(...$numbers)
+    {
+    }
+Lineage: [FooClass]
+Lineage types: [class]

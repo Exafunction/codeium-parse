@@ -1,3 +1,31 @@
+Name: foo
+Definition (definition.import):
+from foo import decorated1
+Default import: foo
+Named imports:
+    decorated1
+
+Name: foo
+Definition (definition.import):
+from foo import decorated2
+Default import: foo
+Named imports:
+    decorated2
+
+Name: foo
+Definition (definition.import):
+from foo import Pattern2a
+Default import: foo
+Named imports:
+    Pattern2a
+
+Name: foo
+Definition (definition.import):
+from foo import pattern2b
+Default import: foo
+Named imports:
+    pattern2b
+
 Name: Pattern0
 Doc:
 """Pattern 0 docstring."""
@@ -18,6 +46,7 @@ Definition (definition.function):
 def pattern1(self):
         pass
 Lineage: [Pattern0NoDoc]
+Lineage types: [class]
 
 Name: pattern1
 Parameters: (param1)
@@ -63,6 +92,7 @@ Definition (definition.function):
     def decorated_method(self):
         """Decorated method docstring."""
 Lineage: [DecoratedClass]
+Lineage types: [class]
 
 Name: decorated_function
 Parameters: ()

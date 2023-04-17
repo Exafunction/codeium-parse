@@ -40,10 +40,12 @@
   (method_declaration
     receiver: (parameter_list
       (parameter_declaration
-        type: (_) @codeium.lineage))
+        type: (_) @_))
     name: (field_identifier) @name
     parameters: (parameter_list) @codeium.parameters) @definition.method
   (#select-adjacent! @doc @definition.method)
+  (#set! codeium.lineage @_)
+  (#set! codeium.lineage_type class)
 )
 
 ;; 4. Pattern 2 from tags.scm.

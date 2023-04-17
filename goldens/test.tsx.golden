@@ -48,6 +48,7 @@ import "./side-effects-only-1.ts";
 
 Name: f
 Parameters: (a: string)
+Return type: string
 Doc:
 /** f comment. */
 Definition (definition.function):
@@ -55,6 +56,7 @@ function f(a: string): string;
 
 Name: f
 Parameters: (a: any)
+Return type: any
 Definition (definition.function):
 function f(a: any): any {
     import default4 from 'npm-lib-4';
@@ -65,10 +67,12 @@ Name: 'npm-lib-4'
 Definition (definition.import):
 import default4 from 'npm-lib-4';
 Lineage: [f]
+Lineage types: [function]
 Default import: default4
 
 Name: f2
 Parameters: (a: number)
+Return type: void
 Doc:
 /** f2 comment. */
 Definition (definition.function):
@@ -76,6 +80,7 @@ declare function f2(a: number): void;
 
 Name: f3
 Parameters: ()
+Return type: void
 Doc:
 /** f3 comment. */
 Definition (definition.function):
@@ -85,6 +90,7 @@ Metadata:
 
 Name: f3
 Parameters: ()
+Return type: void
 Definition (definition.function):
 export function f3(): void {}
 Metadata:
@@ -92,6 +98,7 @@ Metadata:
 
 Name: f4
 Parameters: ()
+Return type: void
 Doc:
 /** f4 comment. */
 Definition (definition.function):
@@ -112,19 +119,23 @@ class Foo {
 
 Name: methodSignature
 Parameters: ()
+Return type: void
 Doc:
 /** methodSignature comment. */
 Definition (definition.method):
 methodSignature(): void
 Lineage: [Foo]
+Lineage types: [class]
 
 Name: methodSignature
 Parameters: ()
+Return type: void
 Doc:
 /** methodSignature comment. */
 Definition (definition.method):
 methodSignature(): void {}
 Lineage: [Foo]
+Lineage types: [class]
 
 Name: Foo2
 Doc:
@@ -137,11 +148,13 @@ declare class Foo2 {
 
 Name: methodSignature2
 Parameters: ()
+Return type: void
 Doc:
 /** methodSignature2 comment. */
 Definition (definition.method):
 methodSignature2(): void
 Lineage: [Foo2]
+Lineage types: [class]
 
 Name: Foo3
 Doc:
@@ -182,11 +195,13 @@ abstract class AbstractClass {
 
 Name: method
 Parameters: (a: string)
+Return type: void
 Doc:
 /** Abstract method comment. */
 Definition (definition.method):
 abstract method(a: string): void
 Lineage: [AbstractClass]
+Lineage types: [class]
 
 Name: AbstractClass2
 Doc:
@@ -221,11 +236,13 @@ interface Interface {
 
 Name: interfaceMethod
 Parameters: (a: string)
+Return type: void
 Doc:
 /** Interface method comment. */
 Definition (definition.method):
 interfaceMethod(a: string): void
 Lineage: [Interface]
+Lineage types: [interface]
 
 Name: Interface2
 Doc:
