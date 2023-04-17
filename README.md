@@ -73,22 +73,24 @@ Queries try to follow the [conventions established by tree-sitter.](https://tree
 
 Most captures also include documentation as `@doc`. `@definition.function` and `@definition.method` also capture `@codeium.parameters`.
 
-|                         | Python | TypeScript | JavaScript | Go  |
-| ----------------------  | ------ | ---------- | ---------- | --- |
-| `@definition.class`     | ✅     | ✅         | ✅         | ✅  |
-| `@definition.function`  | ✅     | ✅[^3]     | ✅         | ✅  |
-| `@definition.method`    | ✅[^1] | ✅[^3]     | ✅         | ✅  |
-| `@definition.interface` | N/A    | ✅         | N/A        | ✅  |
-| `@definition.namespace` | N/A    | ✅         | N/A        | N/A |
-| `@definition.module`    | N/A    | ✅         | N/A        | N/A |
-| `@definition.type`      | N/A    | ✅         | N/A        | ✅  |
-| `@definition.constant`  | ❌     | ❌         | ❌         | ❌  |
-| `@definition.enum`      | ❌     | ❌         | ❌         | ❌  |
-| `@definition.import`    | ❌     | ✅         | ✅         | ❌  |
-| `@reference.call`       | ✅     | ✅         | ✅         | ✅  |
-| `@reference.class`      | ✅[^2] | ✅         | ✅         | ✅  |
+|                         | Python | TypeScript | JavaScript | Go  | Java | C++    | PHP |
+| ----------------------  | ------ | ---------- | ---------- | --- | ---- | ------ | --- |
+| `@definition.class`     | ✅     | ✅         | ✅         | ✅  | ✅   | ✅     | ✅  |
+| `@definition.function`  | ✅     | ✅[^3]     | ✅         | ✅  | N/A  | ✅     | ✅  |
+| `@definition.method`    | ✅[^1] | ✅[^3]     | ✅         | ✅  | ✅   | ✅[^1] | ✅  |
+| `@definition.interface` | N/A    | ✅         | N/A        | ✅  | ✅   | N/A    | ✅  |
+| `@definition.namespace` | N/A    | ✅         | N/A        | N/A | N/A  | ✅     | ❌  |
+| `@definition.module`    | N/A    | ✅         | N/A        | N/A | N/A  | ❌     | N/A |
+| `@definition.type`      | N/A    | ✅         | N/A        | ✅  | N/A  | ❌     | ❌  |
+| `@definition.constant`  | ❌     | ❌         | ❌         | ❌  | ❌   | ❌     | ❌  |
+| `@definition.enum`      | ❌     | ❌         | ❌         | ❌  | ❌   | ❌     | ❌  |
+| `@definition.import`    | ❌     | ✅         | ✅         | ❌  | ❌   | ❌     | N/A |
+| `@definition.include`   | N/A    | N/A        | N/A        | N/A | N/A  | ❌     | ❌  |
+| `@definition.package`   | N/A    | N/A        | N/A        | ❌  | ✅   | N/A    | N/A |
+| `@reference.call`       | ✅     | ✅         | ✅         | ✅  | ❌   | ❌     | ❌  |
+| `@reference.class`      | ✅[^2] | ✅         | ✅         | ✅  | ❌   | ❌     | ❌  |
 
-[^1]: Currently functions and methods are not distinguished in Python.
+[^1]: Currently functions and methods are not distinguished.
 [^2]: Function calls and class instantiation are indistinguishable in Python.
 [^3]: Function and method signatures are captured individually in TypeScript. Therefore, the `@doc` capture may not exist on all nodes.
 
@@ -110,6 +112,11 @@ $ ./parse -supported_predicates
     (#has-type? @capture node_type...)
     Checks if @capture has a node of any of the given types.
 
+#lineage-from-name!
+    (#lineage-from-name! "literal")
+    If the name captures scopes, split by "literal" and retain the last element
+    as the name. The other elements are appended to the lineage.
+
 #match?/#not-match?
     (#match? @capture "regex")
     Checks if the text for @capture matches the given regular expression.
@@ -120,7 +127,7 @@ $ ./parse -supported_predicates
     adjacent lines).
 
 #set!
-    (#set! key value)
+    (#set! key <@capture|"literal">)
     Store metadata as a side effect of a match.
 
 #strip!
@@ -161,6 +168,7 @@ shell
 svelte
 swift
 toml
+tree_sitter_query
 tsx
 typescript
 vue

@@ -27,6 +27,7 @@ Doc:
 Definition (definition.method):
 func (p *Pattern0) Method(string) {}
 Lineage: [*Pattern0]
+Lineage types: [class]
 
 Name: Method2
 Parameters: (a string)
@@ -41,6 +42,7 @@ func (p Pattern0) Method2(a string) string {
 	return a
 }
 Lineage: [Pattern0]
+Lineage types: [class]
 
 Name: Pattern2
 Parameters: ()

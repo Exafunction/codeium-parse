@@ -1,3 +1,166 @@
+;; function signature from javascript_tags.scm with return_type added.
+(
+  (comment)* @doc
+  .
+  (_
+    name: (property_identifier) @name
+    parameters: (formal_parameters) @codeium.parameters
+    return_type: ([
+      (type_annotation (_) @codeium.return_type)
+      (asserts (_) @codeium.return_type)
+      (type_predicate_annotation (_) @codeium.return_type)
+    ])?) @definition.method
+  (#not-eq? @name "constructor")
+  (#has-type? @definition.method method_definition method_signature abstract_method_signature)
+  (#select-adjacent! @doc @definition.method)
+)
+
+;; function signature from javascript_tags.scm with return_type added.
+(
+  (comment)* @doc
+  .
+  (_
+    name: (identifier) @name
+    parameters: (formal_parameters) @codeium.parameters
+    return_type: ([
+      (type_annotation (_) @codeium.return_type)
+      (asserts (_) @codeium.return_type)
+      (type_predicate_annotation (_) @codeium.return_type)
+    ])?
+  ) @definition.function
+  (#has-type? @definition.function function_declaration function_signature generator_function_declaration)
+  (#not-has-parent? @definition.function export_statement ambient_declaration)
+  (#select-adjacent! @doc @definition.function)
+)
+(
+  (comment)* @doc
+  .
+  (export_statement
+    (_
+      name: (identifier) @name
+      parameters: (formal_parameters) @codeium.parameters
+      return_type: ([
+      (type_annotation (_) @codeium.return_type)
+      (asserts (_) @codeium.return_type)
+      (type_predicate_annotation (_) @codeium.return_type)
+    ])?
+    ) @_) @definition.function
+  (#has-type? @_ function_declaration function_signature generator_function_declaration)
+  (#select-adjacent! @doc @definition.function)
+  (#set! is_export true)
+)
+
+;; function signature from javascript_tags.scm with return_type added.
+(
+  (comment)* @doc
+  .
+  (_
+    (variable_declarator
+      name: (identifier) @name
+      value: [
+        (arrow_function
+          parameters: (formal_parameters) @codeium.parameters
+          return_type: ([
+            (type_annotation (_) @codeium.return_type)
+            (asserts (_) @codeium.return_type)
+            (type_predicate_annotation (_) @codeium.return_type)
+          ])?)
+        (function
+          parameters: (formal_parameters) @codeium.parameters
+          return_type: ([
+            (type_annotation (_) @codeium.return_type)
+            (asserts (_) @codeium.return_type)
+            (type_predicate_annotation (_) @codeium.return_type)
+          ])?)
+      ])) @definition.function
+  (#has-type? @definition.function lexical_declaration variable_declaration)
+  (#not-has-parent? @definition.function export_statement ambient_declaration)
+  (#select-adjacent! @doc @definition.function)
+)
+(
+  (comment)* @doc
+  .
+  (export_statement
+    (_
+      (variable_declarator
+        name: (identifier) @name
+        value: [
+          (arrow_function
+            parameters: (formal_parameters) @codeium.parameters
+            return_type: ([
+              (type_annotation (_) @codeium.return_type)
+              (asserts (_) @codeium.return_type)
+              (type_predicate_annotation (_) @codeium.return_type)
+            ])?)
+          (function
+            parameters: (formal_parameters) @codeium.parameters
+            return_type: ([
+              (type_annotation (_) @codeium.return_type)
+              (asserts (_) @codeium.return_type)
+              (type_predicate_annotation (_) @codeium.return_type)
+            ])?)
+        ])) @_) @definition.function
+  (#has-type? @_ lexical_declaration variable_declaration)
+  (#select-adjacent! @doc @definition.function)
+  (#set! is_export true)
+)
+
+;; function signature from javascript_tags.scm with return_type added.
+(
+  (comment)* @doc
+  .
+  (expression_statement
+    (assignment_expression
+      left: [
+        (identifier) @name
+        (member_expression
+          property: (property_identifier) @name)
+      ]
+      right: [
+        (arrow_function
+          parameters: (formal_parameters) @codeium.parameters
+          return_type: ([
+            (type_annotation (_) @codeium.return_type)
+            (asserts (_) @codeium.return_type)
+            (type_predicate_annotation (_) @codeium.return_type)
+          ])?)
+        (function
+          parameters: (formal_parameters) @codeium.parameters
+          return_type: ([
+            (type_annotation (_) @codeium.return_type)
+            (asserts (_) @codeium.return_type)
+            (type_predicate_annotation (_) @codeium.return_type)
+          ])?)
+      ]
+    )) @definition.function
+  (#select-adjacent! @doc @definition.function)
+)
+
+;; function signature from javascript_tags.scm with return_type added.
+(
+  (comment)* @doc
+  .
+  (pair
+    key: (property_identifier) @name
+    value: [
+      (arrow_function
+        parameters: (formal_parameters) @codeium.parameters
+        return_type: ([
+          (type_annotation (_) @codeium.return_type)
+          (asserts (_) @codeium.return_type)
+          (type_predicate_annotation (_) @codeium.return_type)
+        ])?)
+      (function
+        parameters: (formal_parameters) @codeium.parameters
+        return_type: ([
+          (type_annotation (_) @codeium.return_type)
+          (asserts (_) @codeium.return_type)
+          (type_predicate_annotation (_) @codeium.return_type)
+        ])?)
+    ]) @definition.function
+  (#select-adjacent! @doc @definition.function)
+)
+
 ;; function_signature from tree-sitter-typescript/queries/tags.scm.
 ;; function_declaration/generator_function_declaration aren't supported.
 (
@@ -6,7 +169,12 @@
   (ambient_declaration
     (function_signature
       name: (identifier) @name
-      parameters: (formal_parameters) @codeium.parameters)) @definition.function
+      parameters: (formal_parameters) @codeium.parameters
+      return_type: ([
+        (type_annotation (_) @codeium.return_type)
+        (asserts (_) @codeium.return_type)
+        (type_predicate_annotation (_) @codeium.return_type)
+      ])?)) @definition.function
   (#not-has-parent? @definition.function export_statement)
   (#select-adjacent! @doc @definition.function)
 )
@@ -17,7 +185,12 @@
     declaration: (ambient_declaration
       (function_signature
         name: (identifier) @name
-        parameters: (formal_parameters) @codeium.parameters))) @definition.function
+        parameters: (formal_parameters) @codeium.parameters
+        return_type: ([
+          (type_annotation (_) @codeium.return_type)
+          (asserts (_) @codeium.return_type)
+          (type_predicate_annotation (_) @codeium.return_type)
+        ])?))) @definition.function
   (#select-adjacent! @doc @definition.function)
   (#set! is_export true)
 )

@@ -1,0 +1,46 @@
+Name: p2
+Definition (definition.package):
+package p1.p2;
+Lineage: [p1]
+Lineage types: [package]
+
+Name: Foo
+Doc:
+// Class Foo.
+Definition (definition.class):
+public class Foo {
+  /** Foo1. */
+  static public void foo1(int x) {}
+}
+Lineage: [p1 p2]
+Lineage types: [package package]
+
+Name: foo1
+Parameters: (int x)
+Doc:
+/** Foo1. */
+Definition (definition.method):
+static public void foo1(int x) {}
+Lineage: [p1 p2 Foo]
+Lineage types: [package package class]
+
+Name: Bar
+Doc:
+// Interface Bar.
+Definition (definition.interface):
+interface Bar {
+  void declarationOnly();
+  // implementation.
+  void implementation(float y) {}
+}
+Lineage: [p1 p2]
+Lineage types: [package package]
+
+Name: implementation
+Parameters: (float y)
+Doc:
+// implementation.
+Definition (definition.method):
+void implementation(float y) {}
+Lineage: [p1 p2 Bar]
+Lineage types: [package package interface]

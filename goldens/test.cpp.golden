@@ -1,0 +1,49 @@
+Name: bar::bar2
+Definition (definition.namespace):
+namespace bar::bar2 {
+struct Foo3;
+}
+
+Name: Foo
+Definition (definition.class):
+class Foo {
+ public:
+  // foo
+  // foo2
+  void foo() {
+    // Do nothing.
+  }
+}
+
+Name: foo
+Parameters: ()
+Doc:
+// foo
+// foo2
+Definition (definition.function):
+void foo() {
+    // Do nothing.
+  }
+Lineage: [Foo]
+Lineage types: [class]
+
+Name: Foo2
+Definition (definition.class):
+struct bar::Foo2 {}
+Lineage: [bar]
+Lineage types: [unknown]
+
+Name: Foo3
+Definition (definition.class):
+struct bar::bar2::Foo3 {}
+Lineage: [bar bar2]
+Lineage types: [unknown unknown]
+
+Name: baz
+Parameters: (const std::string& bing)
+Doc:
+// baz
+Definition (definition.function):
+bool bar::baz(const std::string& bing) { return bing.empty(); }
+Lineage: [bar]
+Lineage types: [unknown]
