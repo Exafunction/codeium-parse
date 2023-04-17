@@ -84,7 +84,7 @@ Most captures also include documentation as `@doc`. `@definition.function` and `
 | `@definition.type`      | N/A    | ✅         | N/A        | ✅  | N/A  | ❌     | ❌  |
 | `@definition.constant`  | ❌     | ❌         | ❌         | ❌  | ❌   | ❌     | ❌  |
 | `@definition.enum`      | ❌     | ❌         | ❌         | ❌  | ❌   | ❌     | ❌  |
-| `@definition.import`    | ❌     | ✅         | ✅         | ❌  | ❌   | ❌     | N/A |
+| `@definition.import`    | ✅     | ✅         | ✅         | ❌  | ❌   | ❌     | N/A |
 | `@definition.include`   | N/A    | N/A        | N/A        | N/A | N/A  | ❌     | ❌  |
 | `@definition.package`   | N/A    | N/A        | N/A        | ❌  | ✅   | N/A    | N/A |
 | `@reference.call`       | ✅     | ✅         | ✅         | ✅  | ❌   | ❌     | ❌  |
