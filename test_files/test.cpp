@@ -1,7 +1,7 @@
 #include <string>
 
 namespace bar {
-// Declaration, don't include.
+// Declaration.
 bool baz(const std::string& bing);
 
 struct Foo2;

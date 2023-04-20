@@ -2,7 +2,7 @@
 (
   (class_definition
     name: (identifier) @name
-    body: (block . (expression_statement . (string) @doc .)?)) @definition.class
+    body: (block . (expression_statement . (string) @doc .)?) @body) @definition.class
   (#not-has-parent? @definition.class decorated_definition)
 )
 
@@ -28,7 +28,7 @@
   (decorated_definition
     definition: (class_definition
       name: (identifier) @name
-      body: (block . (expression_statement . (string) @doc .)?))) @definition.class
+      body: (block . (expression_statement . (string) @doc .)?) @body)) @definition.class
 )
 
 (

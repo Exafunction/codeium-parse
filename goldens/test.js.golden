@@ -126,7 +126,7 @@ Doc:
  * Pattern 4b comment.
  */
 Definition (definition.function):
-export const pattern4b = (param1) => {};
+export const pattern4b = (param1) => param1;
 Metadata:
     is_export = true
 

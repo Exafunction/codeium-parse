@@ -1,0 +1,19 @@
+Name: created
+Parameters: ()
+Definition (definition.function):
+created: function () {
+            if (this.value === undefined) {
+                this.value = '';
+            }
+        }
+
+Name: foo
+Parameters: ()
+Definition (definition.function):
+function foo() {
+        console.log('foo');
+    }
+
+Name: log
+Reference (reference.call):
+console.log('foo')

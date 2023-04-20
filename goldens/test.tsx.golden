@@ -51,7 +51,7 @@ Parameters: (a: string)
 Return type: string
 Doc:
 /** f comment. */
-Definition (definition.function):
+Declaration (definition.function):
 function f(a: string): string;
 
 Name: f
@@ -75,7 +75,7 @@ Parameters: (a: number)
 Return type: void
 Doc:
 /** f2 comment. */
-Definition (definition.function):
+Declaration (definition.function):
 declare function f2(a: number): void;
 
 Name: f3
@@ -83,7 +83,7 @@ Parameters: ()
 Return type: void
 Doc:
 /** f3 comment. */
-Definition (definition.function):
+Declaration (definition.function):
 export function f3(): void;
 Metadata:
     is_export = true
@@ -101,7 +101,7 @@ Parameters: ()
 Return type: void
 Doc:
 /** f4 comment. */
-Definition (definition.function):
+Declaration (definition.function):
 export declare function f4(): void;
 Metadata:
     is_export = true
@@ -122,7 +122,7 @@ Parameters: ()
 Return type: void
 Doc:
 /** methodSignature comment. */
-Definition (definition.method):
+Declaration (definition.method):
 methodSignature(): void
 Lineage: [Foo]
 Lineage types: [class]
@@ -151,7 +151,7 @@ Parameters: ()
 Return type: void
 Doc:
 /** methodSignature2 comment. */
-Definition (definition.method):
+Declaration (definition.method):
 methodSignature2(): void
 Lineage: [Foo2]
 Lineage types: [class]
@@ -198,7 +198,7 @@ Parameters: (a: string)
 Return type: void
 Doc:
 /** Abstract method comment. */
-Definition (definition.method):
+Declaration (definition.method):
 abstract method(a: string): void
 Lineage: [AbstractClass]
 Lineage types: [class]
@@ -239,7 +239,7 @@ Parameters: (a: string)
 Return type: void
 Doc:
 /** Interface method comment. */
-Definition (definition.method):
+Declaration (definition.method):
 interfaceMethod(a: string): void
 Lineage: [Interface]
 Lineage types: [interface]

@@ -39,6 +39,6 @@
   (method_declaration
     name: (identifier) @name
     parameters: (formal_parameters) @codeium.parameters
-    body: (block)) @definition.method
+    body: (block)? @body) @definition.method
   (#select-adjacent! @doc @definition.method)
 )

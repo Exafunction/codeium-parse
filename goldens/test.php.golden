@@ -1,9 +1,15 @@
+Name: test
+Definition (definition.namespace):
+namespace test;
+
 Name: foo
 Parameters: ()
 Definition (definition.function):
 function foo()
 {
 }
+Lineage: [test]
+Lineage types: [namespace]
 
 Name: FooInterface
 Doc:
@@ -13,6 +19,15 @@ interface FooInterface
 {
     public function encode(...$numbers);
 }
+Lineage: [test]
+Lineage types: [namespace]
+
+Name: encode
+Parameters: (...$numbers)
+Declaration (definition.method):
+public function encode(...$numbers);
+Lineage: [test FooInterface]
+Lineage types: [namespace interface]
 
 Name: FooClass
 Doc:
@@ -28,6 +43,8 @@ class FooClass implements FooInterface
     {
     }
 }
+Lineage: [test]
+Lineage types: [namespace]
 
 Name: encode
 Parameters: (...$numbers)
@@ -40,5 +57,5 @@ Definition (definition.method):
 public function encode(...$numbers)
     {
     }
-Lineage: [FooClass]
-Lineage types: [class]
+Lineage: [test FooClass]
+Lineage types: [namespace class]
