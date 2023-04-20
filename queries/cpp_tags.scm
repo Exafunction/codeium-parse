@@ -8,7 +8,7 @@
     ]
     .
     name: (_) @name
-    body: (field_declaration_list)
+    body: (field_declaration_list) @body
   ) @definition.class
   (#select-adjacent! @doc @definition.class)
   (#lineage-from-name! "::")
@@ -17,10 +17,12 @@
 (
   (comment)* @doc
   .
-  (function_definition
+  (_
     declarator: (function_declarator
       declarator: (_) @name
-      parameters: (parameter_list) @codeium.parameters)) @definition.function
+      parameters: (parameter_list) @codeium.parameters)
+    body: (_)? @body) @definition.function
+  (#has-type? @definition.function function_definition declaration)
   (#select-adjacent! @doc @definition.function)
   (#lineage-from-name! "::")
 )

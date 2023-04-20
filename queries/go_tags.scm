@@ -7,7 +7,8 @@
   (type_declaration
     (type_spec
       name: (type_identifier) @name
-      type: (struct_type))) @definition.class
+      type: (struct_type
+        (field_declaration_list) @body))) @definition.class
   (#match? @definition.class "^type [^\\(]")
   (#select-adjacent! @doc @definition.class)
 )
@@ -29,7 +30,8 @@
   .
   (function_declaration
     name: (identifier) @name
-    parameters: (parameter_list) @codeium.parameters) @definition.function
+    parameters: (parameter_list) @codeium.parameters
+    body: (_)? @body) @definition.function
   (#select-adjacent! @doc @definition.function)
 )
 
@@ -42,7 +44,8 @@
       (parameter_declaration
         type: (_) @_))
     name: (field_identifier) @name
-    parameters: (parameter_list) @codeium.parameters) @definition.method
+    parameters: (parameter_list) @codeium.parameters
+    body: (_)? @body) @definition.method
   (#select-adjacent! @doc @definition.method)
   (#set! codeium.lineage @_)
   (#set! codeium.lineage_type class)
@@ -65,3 +68,15 @@
 (type_spec
   name: (type_identifier) @name
   type: (type_identifier)) @definition.type
+
+(source_file
+  (package_clause
+    (package_identifier) @name) @definition.package) @codeium.lineage_node
+
+(
+  (comment)* @doc
+  .
+  (method_spec
+    name: (field_identifier) @name
+    parameters: (parameter_list) @codeium.parameters) @definition.method
+)

@@ -9,7 +9,8 @@
       (type_annotation (_) @codeium.return_type)
       (asserts (_) @codeium.return_type)
       (type_predicate_annotation (_) @codeium.return_type)
-    ])?) @definition.method
+    ])?
+    body: (_)? @body) @definition.method
   (#not-eq? @name "constructor")
   (#has-type? @definition.method method_definition method_signature abstract_method_signature)
   (#select-adjacent! @doc @definition.method)
@@ -27,7 +28,7 @@
       (asserts (_) @codeium.return_type)
       (type_predicate_annotation (_) @codeium.return_type)
     ])?
-  ) @definition.function
+    body: (_)? @body) @definition.function
   (#has-type? @definition.function function_declaration function_signature generator_function_declaration)
   (#not-has-parent? @definition.function export_statement ambient_declaration)
   (#select-adjacent! @doc @definition.function)
@@ -44,7 +45,7 @@
       (asserts (_) @codeium.return_type)
       (type_predicate_annotation (_) @codeium.return_type)
     ])?
-    ) @_) @definition.function
+    body: (_)? @body) @_) @definition.function
   (#has-type? @_ function_declaration function_signature generator_function_declaration)
   (#select-adjacent! @doc @definition.function)
   (#set! is_export true)
@@ -64,14 +65,16 @@
             (type_annotation (_) @codeium.return_type)
             (asserts (_) @codeium.return_type)
             (type_predicate_annotation (_) @codeium.return_type)
-          ])?)
+          ])?
+          body: (_)? @body)
         (function
           parameters: (formal_parameters) @codeium.parameters
           return_type: ([
             (type_annotation (_) @codeium.return_type)
             (asserts (_) @codeium.return_type)
             (type_predicate_annotation (_) @codeium.return_type)
-          ])?)
+          ])?
+          body: (_)? @body)
       ])) @definition.function
   (#has-type? @definition.function lexical_declaration variable_declaration)
   (#not-has-parent? @definition.function export_statement ambient_declaration)
@@ -91,14 +94,16 @@
               (type_annotation (_) @codeium.return_type)
               (asserts (_) @codeium.return_type)
               (type_predicate_annotation (_) @codeium.return_type)
-            ])?)
+            ])?
+            body: (_)? @body)
           (function
             parameters: (formal_parameters) @codeium.parameters
             return_type: ([
               (type_annotation (_) @codeium.return_type)
               (asserts (_) @codeium.return_type)
               (type_predicate_annotation (_) @codeium.return_type)
-            ])?)
+            ])?
+            body: (_)? @body)
         ])) @_) @definition.function
   (#has-type? @_ lexical_declaration variable_declaration)
   (#select-adjacent! @doc @definition.function)
@@ -123,14 +128,16 @@
             (type_annotation (_) @codeium.return_type)
             (asserts (_) @codeium.return_type)
             (type_predicate_annotation (_) @codeium.return_type)
-          ])?)
+          ])?
+          body: (_)? @body)
         (function
           parameters: (formal_parameters) @codeium.parameters
           return_type: ([
             (type_annotation (_) @codeium.return_type)
             (asserts (_) @codeium.return_type)
             (type_predicate_annotation (_) @codeium.return_type)
-          ])?)
+          ])?
+          body: (_)? @body)
       ]
     )) @definition.function
   (#select-adjacent! @doc @definition.function)
@@ -149,14 +156,16 @@
           (type_annotation (_) @codeium.return_type)
           (asserts (_) @codeium.return_type)
           (type_predicate_annotation (_) @codeium.return_type)
-        ])?)
+        ])?
+        body: (_)? @body)
       (function
         parameters: (formal_parameters) @codeium.parameters
         return_type: ([
           (type_annotation (_) @codeium.return_type)
           (asserts (_) @codeium.return_type)
           (type_predicate_annotation (_) @codeium.return_type)
-        ])?)
+        ])?
+        body: (_)? @body)
     ]) @definition.function
   (#select-adjacent! @doc @definition.function)
 )
@@ -174,7 +183,8 @@
         (type_annotation (_) @codeium.return_type)
         (asserts (_) @codeium.return_type)
         (type_predicate_annotation (_) @codeium.return_type)
-      ])?)) @definition.function
+      ])?
+      body: (_)? @body)) @definition.function
   (#not-has-parent? @definition.function export_statement)
   (#select-adjacent! @doc @definition.function)
 )
@@ -190,7 +200,8 @@
           (type_annotation (_) @codeium.return_type)
           (asserts (_) @codeium.return_type)
           (type_predicate_annotation (_) @codeium.return_type)
-        ])?))) @definition.function
+        ])?
+        body: (_)? @body))) @definition.function
   (#select-adjacent! @doc @definition.function)
   (#set! is_export true)
 )
@@ -204,7 +215,7 @@
   (ambient_declaration
     (_
       name: (_) @name
-      body: (class_body)) @_) @definition.class
+      body: (class_body) @body) @_) @definition.class
   (#has-type? @_ class_declaration abstract_class_declaration)
   (#not-has-parent? @definition.class export_statement)
   (#select-adjacent! @doc @definition.class)
@@ -216,7 +227,7 @@
     declaration: (ambient_declaration
       (_
         name: (_) @name
-        body: (class_body)) @_)) @definition.class
+        body: (class_body) @body) @_)) @definition.class
   (#has-type? @_ class_declaration abstract_class_declaration)
   (#select-adjacent! @doc @definition.class)
   (#set! is_export true)

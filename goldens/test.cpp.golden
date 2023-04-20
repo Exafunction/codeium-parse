@@ -1,3 +1,10 @@
+Name: baz
+Parameters: (const std::string& bing)
+Doc:
+// Declaration.
+Declaration (definition.function):
+bool baz(const std::string& bing);
+
 Name: bar::bar2
 Definition (definition.namespace):
 namespace bar::bar2 {

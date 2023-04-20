@@ -53,7 +53,7 @@ const pattern4a = function (param1) {
 /**
  * Pattern 4b comment.
  */
-export const pattern4b = (param1) => {};
+export const pattern4b = (param1) => param1;
 
 /**
  * Pattern 5a comment.

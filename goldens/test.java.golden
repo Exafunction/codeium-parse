@@ -7,7 +7,7 @@ Lineage types: [package]
 Name: Foo
 Doc:
 // Class Foo.
-Definition (definition.class):
+Declaration (definition.class):
 public class Foo {
   /** Foo1. */
   static public void foo1(int x) {}
@@ -35,6 +35,13 @@ interface Bar {
 }
 Lineage: [p1 p2]
 Lineage types: [package package]
+
+Name: declarationOnly
+Parameters: ()
+Declaration (definition.method):
+void declarationOnly();
+Lineage: [p1 p2 Bar]
+Lineage types: [package package interface]
 
 Name: implementation
 Parameters: (float y)

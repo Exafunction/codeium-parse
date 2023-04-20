@@ -5,7 +5,7 @@
   .
   (_
     name: (_) @name
-    body: (class_body)) @definition.class
+    body: (class_body) @body) @definition.class
   (#has-type? @definition.class class_declaration abstract_class_declaration)
   (#not-has-parent? @definition.class export_statement ambient_declaration)
   (#select-adjacent! @doc @definition.class)
@@ -16,7 +16,7 @@
   (export_statement
     declaration: (_
       name: (_) @name
-      body: (class_body)) @_) @definition.class
+      body: (class_body) @body) @_) @definition.class
   (#has-type? @_ class_declaration abstract_class_declaration)
   (#select-adjacent! @doc @definition.class)
   (#set! is_export true)
@@ -48,7 +48,8 @@
   (_
     (variable_declarator
       name: (identifier) @name
-      value: (class))) @definition.class
+      value: (class
+        body: (_) @body))) @definition.class
   (#has-type? @definition.class lexical_declaration variable_declaration)
   (#not-has-parent? @definition.class export_statement ambient_declaration)
   (#select-adjacent! @doc @definition.class)
@@ -60,7 +61,8 @@
     (_
       (variable_declarator
         name: (identifier) @name
-        value: (class))) @_) @definition.class
+        value: (class
+          body: (_) @body))) @_) @definition.class
   (#has-type? @_ lexical_declaration variable_declaration)
   (#select-adjacent! @doc @definition.class)
   (#set! is_export true)

@@ -7,6 +7,7 @@ type Pattern0 struct {
 
 // Pattern 1.
 type Pattern1 interface {
+	// Hi
 	a() string
 }
 

@@ -1,3 +1,7 @@
+Name: test_files
+Definition (definition.package):
+package test_files
+
 Name: Pattern0
 Doc:
 // Pattern 0.
@@ -5,19 +9,35 @@ Definition (definition.class):
 type Pattern0 struct {
 	a string
 }
+Lineage: [test_files]
+Lineage types: [package]
 
 Name: Pattern1
 Doc:
 // Pattern 1.
 Definition (definition.interface):
 type Pattern1 interface {
+	// Hi
 	a() string
 }
+Lineage: [test_files]
+Lineage types: [package]
+
+Name: a
+Parameters: ()
+Doc:
+// Hi
+Declaration (definition.method):
+a() string
+Lineage: [test_files Pattern1]
+Lineage types: [package interface]
 
 Name: Pattern2
 Parameters: ()
 Definition (definition.function):
 func Pattern2() {}
+Lineage: [test_files]
+Lineage types: [package]
 
 Name: Method
 Parameters: (string)
@@ -26,8 +46,8 @@ Doc:
 // here.
 Definition (definition.method):
 func (p *Pattern0) Method(string) {}
-Lineage: [*Pattern0]
-Lineage types: [class]
+Lineage: [test_files *Pattern0]
+Lineage types: [package class]
 
 Name: Method2
 Parameters: (a string)
@@ -41,8 +61,8 @@ func (p Pattern0) Method2(a string) string {
 	s2.(*Pattern0).Method("")
 	return a
 }
-Lineage: [Pattern0]
-Lineage types: [class]
+Lineage: [test_files Pattern0]
+Lineage types: [package class]
 
 Name: Pattern2
 Parameters: ()
@@ -71,3 +91,5 @@ s2.(*Pattern0).Method("")
 Name: Alias
 Definition (definition.type):
 Alias string
+Lineage: [test_files]
+Lineage types: [package]

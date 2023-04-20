@@ -7,7 +7,8 @@
   .
   (_
     name: (property_identifier) @name
-    parameters: (formal_parameters) @codeium.parameters) @definition.method
+    parameters: (formal_parameters) @codeium.parameters
+    body: (_) @body) @definition.method
   (#not-eq? @name "constructor")
   (#has-type? @definition.method method_definition method_signature abstract_method_signature)
   (#select-adjacent! @doc @definition.method)
@@ -24,7 +25,7 @@
   (_
     name: (identifier) @name
     parameters: (formal_parameters) @codeium.parameters
-  ) @definition.function
+    body: (_) @body) @definition.function
   (#has-type? @definition.function function_declaration function_signature generator_function_declaration)
   (#not-has-parent? @definition.function export_statement ambient_declaration)
   (#select-adjacent! @doc @definition.function)
@@ -36,7 +37,7 @@
     (_
       name: (identifier) @name
       parameters: (formal_parameters) @codeium.parameters
-    ) @_) @definition.function
+      body: (_) @body) @_) @definition.function
   (#has-type? @_ function_declaration function_signature generator_function_declaration)
   (#select-adjacent! @doc @definition.function)
   (#set! is_export true)
@@ -53,9 +54,11 @@
       name: (identifier) @name
       value: [
         (arrow_function
-          parameters: (formal_parameters) @codeium.parameters)
+          parameters: (formal_parameters) @codeium.parameters
+          body: (_) @body)
         (function
-          parameters: (formal_parameters) @codeium.parameters)
+          parameters: (formal_parameters) @codeium.parameters
+          body: (_) @body)
       ])) @definition.function
   (#has-type? @definition.function lexical_declaration variable_declaration)
   (#not-has-parent? @definition.function export_statement ambient_declaration)
@@ -70,9 +73,11 @@
         name: (identifier) @name
         value: [
           (arrow_function
-            parameters: (formal_parameters) @codeium.parameters)
+            parameters: (formal_parameters) @codeium.parameters
+            body: (_) @body)
           (function
-            parameters: (formal_parameters) @codeium.parameters)
+            parameters: (formal_parameters) @codeium.parameters
+            body: (_) @body)
         ])) @_) @definition.function
   (#has-type? @_ lexical_declaration variable_declaration)
   (#select-adjacent! @doc @definition.function)
@@ -92,9 +97,11 @@
       ]
       right: [
         (arrow_function
-          parameters: (formal_parameters) @codeium.parameters)
+          parameters: (formal_parameters) @codeium.parameters
+          body: (_) @body)
         (function
-          parameters: (formal_parameters) @codeium.parameters)
+          parameters: (formal_parameters) @codeium.parameters
+          body: (_) @body)
       ]
     )) @definition.function
   (#select-adjacent! @doc @definition.function)
@@ -108,9 +115,11 @@
     key: (property_identifier) @name
     value: [
       (arrow_function
-        parameters: (formal_parameters) @codeium.parameters)
+        parameters: (formal_parameters) @codeium.parameters
+        body: (_) @body)
       (function
-        parameters: (formal_parameters) @codeium.parameters)
+        parameters: (formal_parameters) @codeium.parameters
+        body: (_) @body)
     ]) @definition.function
   (#select-adjacent! @doc @definition.function)
 )
