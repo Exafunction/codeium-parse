@@ -1,0 +1,17 @@
+Name: fib
+Parameters: (n)
+Definition (definition.function):
+function fib(n) {
+        if (n <= 1) {
+          return n;
+        }
+        return fib(n - 1) + fib(n - 2);
+      }
+
+Name: fib
+Reference (reference.call):
+fib(n - 1)
+
+Name: fib
+Reference (reference.call):
+fib(n - 2)

@@ -1,15 +1,29 @@
+Name: bar
+Definition (definition.namespace):
+namespace bar {
+// Declaration.
+bool baz(const std::string& bing);
+
+struct Foo2;
+
+}
+
 Name: baz
 Parameters: (const std::string& bing)
 Doc:
 // Declaration.
 Declaration (definition.function):
 bool baz(const std::string& bing);
+Lineage: [bar]
+Lineage types: [namespace]
 
-Name: bar::bar2
+Name: bar2
 Definition (definition.namespace):
 namespace bar::bar2 {
 struct Foo3;
 }
+Lineage: [bar]
+Lineage types: [namespace]
 
 Name: Foo
 Definition (definition.class):

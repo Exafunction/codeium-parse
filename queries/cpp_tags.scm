@@ -28,4 +28,6 @@
 )
 
 (namespace_definition
-  name: (namespace_definition_name) @name) @definition.namespace
+  name: (_) @name
+  (#lineage-from-name! "::")
+) @definition.namespace
