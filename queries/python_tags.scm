@@ -13,6 +13,7 @@
     parameters: (parameters) @codeium.parameters
     body: (block . (expression_statement . (string) @doc .)?) @body) @definition.function
   (#not-has-parent? @definition.function decorated_definition)
+  (#not-eq? @name "__init__")
 )
 
 ;; 2. Pattern 2 from tags.scm.

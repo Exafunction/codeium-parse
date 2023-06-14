@@ -8,6 +8,7 @@
   (#lineage-from-name! ".")
 ) @codeium.lineage_node
 
+;; Class and record
 (
   [
     (line_comment)
@@ -15,9 +16,26 @@
   ]* @doc
   .
   (class_declaration
-    name: (identifier) @name) @definition.class
+    name: (identifier) @name
+    body: (class_body)? @body
+  ) @definition.class
   (#select-adjacent! @doc @definition.class)
 )
+
+(
+  [
+    (line_comment)
+    (block_comment)
+  ]* @doc
+  .
+  (record_declaration
+    name: (identifier) @name
+    parameters: (formal_parameters) @body
+    body: (class_body)? @body
+  ) @definition.class
+  (#select-adjacent! @doc @definition.class)
+)
+
 
 (
   [

@@ -31,6 +31,7 @@
   (function_declaration
     name: (identifier) @name
     parameters: (parameter_list) @codeium.parameters
+    result: _? @codeium.return_type
     body: (_)? @body) @definition.function
   (#select-adjacent! @doc @definition.function)
 )
@@ -45,6 +46,7 @@
         type: (_) @_))
     name: (field_identifier) @name
     parameters: (parameter_list) @codeium.parameters
+    result: _? @codeium.return_type
     body: (_)? @body) @definition.method
   (#select-adjacent! @doc @definition.method)
   (#set! codeium.lineage @_)
@@ -78,5 +80,7 @@
   .
   (method_spec
     name: (field_identifier) @name
-    parameters: (parameter_list) @codeium.parameters) @definition.method
+    parameters: (parameter_list) @codeium.parameters
+    result: _? @codeium.return_type
+  ) @definition.method
 )

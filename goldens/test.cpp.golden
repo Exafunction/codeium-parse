@@ -10,6 +10,7 @@ struct Foo2;
 
 Name: baz
 Parameters: (const std::string& bing)
+Return type: bool
 Doc:
 // Declaration.
 Declaration (definition.function):
@@ -38,6 +39,7 @@ class Foo {
 
 Name: foo
 Parameters: ()
+Return type: void
 Doc:
 // foo
 // foo2
@@ -62,9 +64,34 @@ Lineage types: [unknown unknown]
 
 Name: baz
 Parameters: (const std::string& bing)
+Return type: bool
 Doc:
 // baz
 Definition (definition.function):
-bool bar::baz(const std::string& bing) { return bing.empty(); }
+bool bar::baz(const std::string& bing) {
+  // This shouldn't be recognized as a function.
+  Foo dist();
+  return bing.empty();
+}
 Lineage: [bar]
 Lineage types: [unknown]
+
+Name: one_pointer
+Parameters: ()
+Return type: bool
+Doc:
+// one_pointer comment
+Definition (definition.function):
+bool* one_pointer() { return nullptr; }
+Metadata:
+    return_type_suffix = *
+
+Name: two_pointer
+Parameters: ()
+Return type: bool
+Doc:
+// two_pointer comment
+Definition (definition.function):
+bool** two_pointer() { return nullptr; }
+Metadata:
+    return_type_suffix = **
