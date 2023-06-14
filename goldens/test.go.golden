@@ -25,6 +25,7 @@ Lineage types: [package]
 
 Name: a
 Parameters: ()
+Return type: string
 Doc:
 // Hi
 Declaration (definition.method):
@@ -51,6 +52,7 @@ Lineage types: [package class]
 
 Name: Method2
 Parameters: (a string)
+Return type: string
 Definition (definition.method):
 func (p Pattern0) Method2(a string) string {
 	Pattern2()

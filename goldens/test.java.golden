@@ -7,7 +7,7 @@ Lineage types: [package]
 Name: Foo
 Doc:
 // Class Foo.
-Declaration (definition.class):
+Definition (definition.class):
 public class Foo {
   /** Foo1. */
   static public void foo1(int x) {}

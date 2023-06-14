@@ -265,7 +265,9 @@
   (comment)* @doc
   .
   (interface_declaration
-    name: (_) @name) @definition.interface
+    name: (_) @name
+    body: (_)? @body
+    ) @definition.interface
   (#not-has-parent? @definition.interface export_statement ambient_declaration)
   (#select-adjacent! @doc @definition.interface)
 )
@@ -274,7 +276,8 @@
   .
   (export_statement
     declaration: (interface_declaration
-    name: (_) @name)) @definition.interface
+    name: (_) @name
+    body: (_)? @body)) @definition.interface
   (#select-adjacent! @doc @definition.interface)
   (#set! is_export true)
 )
@@ -283,7 +286,8 @@
   .
   (ambient_declaration
     (interface_declaration
-      name: (_) @name)) @definition.interface
+      name: (_) @name
+      body: (_)? @body)) @definition.interface
   (#not-has-parent? @definition.interface export_statement)
   (#select-adjacent! @doc @definition.interface)
 )
@@ -293,7 +297,8 @@
   (export_statement
     declaration: (ambient_declaration
       (interface_declaration
-        name: (_) @name))) @definition.interface
+        name: (_) @name
+        body: (_)? @body))) @definition.interface
   (#select-adjacent! @doc @definition.interface)
   (#set! is_export true)
 )
@@ -303,7 +308,9 @@
   (comment)* @doc
   .
   (type_alias_declaration
-    name: (_) @name) @definition.type
+    name: (_) @name
+    value: (_)? @body
+    ) @definition.type
   (#not-has-parent? @definition.type export_statement ambient_declaration)
   (#select-adjacent! @doc @definition.type)
 )
@@ -312,7 +319,9 @@
   .
   (export_statement
     declaration: (type_alias_declaration
-    name: (_) @name)) @definition.type
+    name: (_) @name
+    value: (_)? @body
+    )) @definition.type
   (#select-adjacent! @doc @definition.type)
   (#set! is_export true)
 )
@@ -321,7 +330,9 @@
   .
   (ambient_declaration
     (type_alias_declaration
-      name: (_) @name)) @definition.type
+      name: (_) @name
+      value: (_)? @body
+      )) @definition.type
   (#not-has-parent? @definition.type export_statement)
   (#select-adjacent! @doc @definition.type)
 )

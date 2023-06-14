@@ -25,4 +25,13 @@ struct bar::Foo2 {};
 struct bar::bar2::Foo3 {};
 
 // baz
-bool bar::baz(const std::string& bing) { return bing.empty(); }
+bool bar::baz(const std::string& bing) {
+  // This shouldn't be recognized as a function.
+  Foo dist();
+  return bing.empty();
+}
+
+// one_pointer comment
+bool* one_pointer() { return nullptr; }
+// two_pointer comment
+bool** two_pointer() { return nullptr; }
