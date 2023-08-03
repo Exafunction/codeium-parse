@@ -57,13 +57,22 @@
 (call_expression
   function: [
     (identifier) @name
-    (selector_expression field: (field_identifier) @name)
+    (selector_expression
+      operand: (identifier) @parent
+      field: (field_identifier) @name)
+    (selector_expression
+      field: (field_identifier) @name)
   ]
   arguments: (argument_list) @codeium.parameters) @reference.call
 
 ;; 5.
 (composite_literal
-  type: (type_identifier) @name) @reference.class
+  type: [
+    (type_identifier) @name
+    (qualified_type
+      package: (package_identifier) @parent
+      name: (type_identifier) @name)
+  ]) @reference.class
 
 ;; 6. Pattern 3 from tags.scm.
 ;; Restricted to just type aliases.

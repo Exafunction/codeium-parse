@@ -58,14 +58,18 @@ def pattern1(param1):
     'Pattern 1 docstring.'
 
 Name: Pattern2a
+Parameters: ()
 Reference (reference.call):
 Pattern2a()
 
 Name: pattern2b
+Parameters: (1)
 Reference (reference.call):
 pattern2b(1)
 
 Name: foo
+Parent: Pattern2a
+Parameters: ()
 Reference (reference.call):
 Pattern2a.foo()
 

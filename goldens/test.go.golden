@@ -76,6 +76,7 @@ Reference (reference.class):
 Pattern0{}
 
 Name: Method
+Parent: s
 Parameters: ("")
 Reference (reference.call):
 s.Method("")

@@ -78,20 +78,66 @@ Lineage types: [unknown]
 
 Name: one_pointer
 Parameters: ()
-Return type: bool
+Return type: bool*
 Doc:
 // one_pointer comment
 Definition (definition.function):
 bool* one_pointer() { return nullptr; }
-Metadata:
-    return_type_suffix = *
 
 Name: two_pointer
 Parameters: ()
-Return type: bool
+Return type: bool**
 Doc:
 // two_pointer comment
 Definition (definition.function):
 bool** two_pointer() { return nullptr; }
-Metadata:
-    return_type_suffix = **
+
+Name: TemplatedFoo
+Doc:
+// Comment.
+Definition (definition.class):
+template <typename T>
+class TemplatedFoo {
+  template <typename U>
+  void foo();
+};
+
+Name: foo
+Parameters: ()
+Return type: void
+Declaration (definition.function):
+template <typename U>
+  void foo();
+Lineage: [TemplatedFoo]
+Lineage types: [class]
+
+Name: foo
+Parameters: ()
+Return type: void
+Doc:
+// Comment.
+Definition (definition.function):
+template <typename T>
+template <typename U>
+void TemplatedFoo<T>::foo() {}
+Lineage: [TemplatedFoo<T>]
+Lineage types: [unknown]
+
+Name: foo<int>
+Parameters: ()
+Return type: void
+Doc:
+// Comment.
+Definition (definition.function):
+template <>
+template <>
+void TemplatedFoo<int>::foo<int>() {}
+Lineage: [TemplatedFoo<int>]
+Lineage types: [unknown]
+
+Name: TemplatedFoo2<int>
+Doc:
+// Comment.
+Definition (definition.class):
+template <>
+class TemplatedFoo2<int> {};
