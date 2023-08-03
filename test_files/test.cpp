@@ -35,3 +35,28 @@ bool bar::baz(const std::string& bing) {
 bool* one_pointer() { return nullptr; }
 // two_pointer comment
 bool** two_pointer() { return nullptr; }
+
+// Comment.
+template <typename T>
+class TemplatedFoo {
+  template <typename U>
+  void foo();
+};
+
+// Comment.
+template <typename T>
+template <typename U>
+void TemplatedFoo<T>::foo() {}
+
+// Comment.
+template <>
+template <>
+void TemplatedFoo<int>::foo<int>() {}
+
+// Comment.
+template <typename T>
+class TemplatedFoo2;
+
+// Comment.
+template <>
+class TemplatedFoo2<int> {};

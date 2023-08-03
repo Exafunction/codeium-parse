@@ -22,8 +22,10 @@
   function: [
       (identifier) @name
       (attribute
+        object: (identifier) @parent
         attribute: (identifier) @name)
-  ]) @reference.call
+  ]
+  arguments: (argument_list) @codeium.parameters) @reference.call
 
 (
   (decorated_definition

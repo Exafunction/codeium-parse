@@ -93,6 +93,7 @@ Most captures also include documentation as `@doc`. `@definition.function` and `
 | Language | Supported injections   |
 | -------- | ---------------------- |
 | Vue      | JavaScript, TypeScript |
+| HTML     | JavaScript             |
 
 [^1]: Currently functions and methods are not distinguished.
 [^2]: Function calls and class instantiation are indistinguishable in Python.
@@ -157,6 +158,7 @@ html
 java
 javascript
 json
+julia
 kotlin
 latex
 markdown
