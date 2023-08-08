@@ -5,9 +5,15 @@
   .
   [
     (method
-      name: (_) @name) @definition.method
+      name: (_) @name
+      parameters: (method_parameters) @codeium.parameters
+      body: (_) @body
+    ) @definition.method
     (singleton_method
-      name: (_) @name) @definition.method
+      name: (_) @name
+      parameters: (method_parameters) @codeium.parameters
+      body: (_) @body
+    ) @definition.method
   ]
   (#strip! @doc "^#\\s*")
   (#select-adjacent! @doc @definition.method)
@@ -59,6 +65,5 @@
 
 (
   [(identifier) (constant)] @name @reference.call
-  (#is-not? local)
   (#not-match? @name "^(lambda|load|require|require_relative|__FILE__|__LINE__)$")
 )

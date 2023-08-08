@@ -1,0 +1,243 @@
+Name: require
+Reference (reference.call):
+require "net/http"
+
+Name: SomeClass
+Declaration (definition.class):
+class SomeClass
+  def nice()
+    "Nice"
+  end
+end
+
+Name: SomeClass
+Reference (reference.call):
+SomeClass
+
+Name: nice
+Reference (reference.call):
+nice
+
+Name: nice
+Parameters: ()
+Definition (definition.method):
+def nice()
+    "Nice"
+  end
+Lineage: [SomeClass]
+Lineage types: [class]
+
+Name: Foo
+Definition (definition.module):
+module Foo
+  def foo
+    :foo
+  end
+end
+
+Name: Foo
+Reference (reference.call):
+Foo
+
+Name: foo
+Reference (reference.call):
+foo
+
+Name: Test
+Reference (reference.call):
+Test
+
+Name: SubTest
+Definition (definition.module):
+module Test::SubTest
+  class MyClass < SomeClass
+    include Foo
+
+    def self.foo
+      new.foo
+    end
+
+    class << self
+      def bar
+        new.bar(true)
+      end
+    end
+
+    def foo
+      self
+    end
+
+    def bar(arg1, arg2 = "fine")
+      nil
+    end
+
+    def baz(arg1, *args)
+    end
+  end
+end
+
+Name: SubTest
+Reference (reference.call):
+SubTest
+
+Name: MyClass
+Declaration (definition.class):
+class MyClass < SomeClass
+    include Foo
+
+    def self.foo
+      new.foo
+    end
+
+    class << self
+      def bar
+        new.bar(true)
+      end
+    end
+
+    def foo
+      self
+    end
+
+    def bar(arg1, arg2 = "fine")
+      nil
+    end
+
+    def baz(arg1, *args)
+    end
+  end
+Lineage: [SubTest]
+Lineage types: [module]
+
+Name: MyClass
+Reference (reference.call):
+MyClass
+
+Name: SomeClass
+Reference (reference.call):
+SomeClass
+
+Name: include
+Reference (reference.call):
+include Foo
+
+Name: include
+Reference (reference.call):
+include
+
+Name: Foo
+Reference (reference.call):
+Foo
+
+Name: foo
+Reference (reference.call):
+foo
+
+Name: new
+Reference (reference.call):
+new
+
+Name: foo
+Reference (reference.call):
+new.foo
+
+Name: foo
+Reference (reference.call):
+foo
+
+Name: bar
+Reference (reference.call):
+bar
+
+Name: new
+Reference (reference.call):
+new
+
+Name: bar
+Reference (reference.call):
+new.bar(true)
+
+Name: bar
+Reference (reference.call):
+bar
+
+Name: foo
+Reference (reference.call):
+foo
+
+Name: bar
+Reference (reference.call):
+bar
+
+Name: arg1
+Reference (reference.call):
+arg1
+
+Name: arg2
+Reference (reference.call):
+arg2
+
+Name: bar
+Parameters: (arg1, arg2 = "fine")
+Definition (definition.method):
+def bar(arg1, arg2 = "fine")
+      nil
+    end
+Lineage: [SubTest MyClass]
+Lineage types: [module class]
+
+Name: baz
+Reference (reference.call):
+baz
+
+Name: arg1
+Reference (reference.call):
+arg1
+
+Name: args
+Reference (reference.call):
+args
+
+Name: Test
+Reference (reference.call):
+Test
+
+Name: SubTest
+Reference (reference.call):
+SubTest
+
+Name: SubSubTest
+Definition (definition.module):
+module Test::SubTest::SubSubTest
+  module SubSubSubTest
+    extend Foo
+  end
+end
+
+Name: SubSubTest
+Reference (reference.call):
+SubSubTest
+
+Name: SubSubSubTest
+Definition (definition.module):
+module SubSubSubTest
+    extend Foo
+  end
+Lineage: [SubSubTest]
+Lineage types: [module]
+
+Name: SubSubSubTest
+Reference (reference.call):
+SubSubSubTest
+
+Name: extend
+Reference (reference.call):
+extend Foo
+
+Name: extend
+Reference (reference.call):
+extend
+
+Name: Foo
+Reference (reference.call):
+Foo
