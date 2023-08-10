@@ -15,7 +15,6 @@
       body: (_) @body
     ) @definition.method
   ]
-  (#strip! @doc "^#\\s*")
   (#select-adjacent! @doc @definition.method)
 )
 
@@ -60,9 +59,13 @@
 
 ; Calls
 
-(call method: (identifier) @name) @reference.call
+(
+  call method: [(identifier) (constant)] @name
+  (#not-match? @name "^(lambda|load|require|require_relative|__FILE__|__LINE__)$")
+) @reference.call
+
 
 (
-  [(identifier) (constant)] @name @reference.call
-  (#not-match? @name "^(lambda|load|require|require_relative|__FILE__|__LINE__)$")
-)
+  call method: [(identifier) (constant)] @name
+  (#match? @name "^(require|require_relative)$")
+) @definition.import

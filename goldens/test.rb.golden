@@ -1,5 +1,5 @@
 Name: require
-Reference (reference.call):
+Definition (definition.import):
 require "net/http"
 
 Name: SomeClass
@@ -14,14 +14,6 @@ class SomeClass
     "Nice"
   end
 end
-
-Name: SomeClass
-Reference (reference.call):
-SomeClass
-
-Name: empty_parens
-Reference (reference.call):
-empty_parens
 
 Name: empty_parens
 Parameters: ()
@@ -40,17 +32,9 @@ module SomeModule
   end
 end
 
-Name: SomeModule
-Reference (reference.call):
-SomeModule
-
-Name: omitted_parens
-Reference (reference.call):
-omitted_parens
-
 Name: Test
-Reference (reference.call):
-Test
+Definition (definition.module):
+module Test ; end
 
 Name: SubTest
 Definition (definition.module):
@@ -61,7 +45,7 @@ module Test::SubTest
 
     # Some languages would call this a "static" method
     def self.in_eigenclass
-      new.foo
+      new.simple
     end
 
     class << self
@@ -73,6 +57,10 @@ module Test::SubTest
 
     def simple
       self
+    end
+
+    def unparenthesized arg1, arg2
+      arg2, arg1 = arg1, arg2
     end
 
     def optional_param(arg1, arg2 = "fine")
@@ -84,10 +72,6 @@ module Test::SubTest
   end
 end
 
-Name: SubTest
-Reference (reference.call):
-SubTest
-
 Name: MyClass
 Declaration (definition.class):
 class MyClass < SomeClass
@@ -95,7 +79,7 @@ class MyClass < SomeClass
 
     # Some languages would call this a "static" method
     def self.in_eigenclass
-      new.foo
+      new.simple
     end
 
     class << self
@@ -107,6 +91,10 @@ class MyClass < SomeClass
 
     def simple
       self
+    end
+
+    def unparenthesized arg1, arg2
+      arg2, arg1 = arg1, arg2
     end
 
     def optional_param(arg1, arg2 = "fine")
@@ -119,73 +107,26 @@ class MyClass < SomeClass
 Lineage: [SubTest]
 Lineage types: [module]
 
-Name: MyClass
-Reference (reference.call):
-MyClass
-
-Name: SomeClass
-Reference (reference.call):
-SomeClass
-
 Name: include
 Reference (reference.call):
 include SomeModule
 
-Name: include
+Name: simple
 Reference (reference.call):
-include
-
-Name: SomeModule
-Reference (reference.call):
-SomeModule
-
-Name: in_eigenclass
-Reference (reference.call):
-in_eigenclass
-
-Name: new
-Reference (reference.call):
-new
-
-Name: foo
-Reference (reference.call):
-new.foo
-
-Name: foo
-Reference (reference.call):
-foo
-
-Name: in_reopened_eigenclass
-Reference (reference.call):
-in_reopened_eigenclass
-
-Name: new
-Reference (reference.call):
-new
+new.simple
 
 Name: bar
 Reference (reference.call):
 new.bar(true)
 
-Name: bar
-Reference (reference.call):
-bar
-
-Name: simple
-Reference (reference.call):
-simple
-
-Name: optional_param
-Reference (reference.call):
-optional_param
-
-Name: arg1
-Reference (reference.call):
-arg1
-
-Name: arg2
-Reference (reference.call):
-arg2
+Name: unparenthesized
+Parameters: arg1, arg2
+Definition (definition.method):
+def unparenthesized arg1, arg2
+      arg2, arg1 = arg1, arg2
+    end
+Lineage: [SubTest MyClass]
+Lineage types: [module class]
 
 Name: optional_param
 Parameters: (arg1, arg2 = "fine")
@@ -196,58 +137,26 @@ def optional_param(arg1, arg2 = "fine")
 Lineage: [SubTest MyClass]
 Lineage types: [module class]
 
-Name: splatted_args
-Reference (reference.call):
-splatted_args
-
-Name: arg1
-Reference (reference.call):
-arg1
-
-Name: args
-Reference (reference.call):
-args
-
-Name: Test
-Reference (reference.call):
-Test
-
-Name: SubTest
-Reference (reference.call):
-SubTest
-
 Name: SubSubTest
 Definition (definition.module):
 module Test::SubTest::SubSubTest
   module SubSubSubTest
-    extend Foo
+    extend SomeModule
   end
 end
-
-Name: SubSubTest
-Reference (reference.call):
-SubSubTest
 
 Name: SubSubSubTest
 Definition (definition.module):
 module SubSubSubTest
-    extend Foo
+    extend SomeModule
   end
 Lineage: [SubSubTest]
 Lineage types: [module]
 
-Name: SubSubSubTest
-Reference (reference.call):
-SubSubSubTest
-
 Name: extend
 Reference (reference.call):
-extend Foo
+extend SomeModule
 
-Name: extend
+Name: MyTerribleMethod
 Reference (reference.call):
-extend
-
-Name: Foo
-Reference (reference.call):
-Foo
+MyTerribleMethod()

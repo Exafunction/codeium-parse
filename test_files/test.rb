@@ -16,6 +16,8 @@ module SomeModule
   end
 end
 
+module Test ; end
+
 # This module is acting more like a namespace
 module Test::SubTest
   # We're inheriting from SomeClass here
@@ -24,7 +26,7 @@ module Test::SubTest
 
     # Some languages would call this a "static" method
     def self.in_eigenclass
-      new.foo
+      new.simple
     end
 
     class << self
@@ -38,6 +40,10 @@ module Test::SubTest
       self
     end
 
+    def unparenthesized arg1, arg2
+      arg2, arg1 = arg1, arg2
+    end
+
     def optional_param(arg1, arg2 = "fine")
       nil
     end
@@ -49,6 +55,11 @@ end
 
 module Test::SubTest::SubSubTest
   module SubSubSubTest
-    extend Foo
+    extend SomeModule
   end
 end
+
+def MyTerribleMethod
+end
+
+MyTerribleMethod()
