@@ -44,7 +44,6 @@
           name: (_) @name)
       ]) @definition.class
   ]
-  (#strip! @doc "^#\\s*")
   (#select-adjacent! @doc @definition.class)
 )
 

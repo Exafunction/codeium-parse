@@ -3,9 +3,14 @@ Reference (reference.call):
 require "net/http"
 
 Name: SomeClass
+Doc:
+# This is just your standard class
+#  nothing strange here
 Declaration (definition.class):
 class SomeClass
-  def nice()
+  # In ruby, the parentheses can be omitted in many circumstances
+  # This is probably a job for the AST, but we'll add a test here anyway
+  def empty_parens()
     "Nice"
   end
 end
@@ -14,34 +19,34 @@ Name: SomeClass
 Reference (reference.call):
 SomeClass
 
-Name: nice
+Name: empty_parens
 Reference (reference.call):
-nice
+empty_parens
 
-Name: nice
+Name: empty_parens
 Parameters: ()
 Definition (definition.method):
-def nice()
+def empty_parens()
     "Nice"
   end
 Lineage: [SomeClass]
 Lineage types: [class]
 
-Name: Foo
+Name: SomeModule
 Definition (definition.module):
-module Foo
-  def foo
+module SomeModule
+  def omitted_parens
     :foo
   end
 end
 
-Name: Foo
+Name: SomeModule
 Reference (reference.call):
-Foo
+SomeModule
 
-Name: foo
+Name: omitted_parens
 Reference (reference.call):
-foo
+omitted_parens
 
 Name: Test
 Reference (reference.call):
@@ -50,28 +55,31 @@ Test
 Name: SubTest
 Definition (definition.module):
 module Test::SubTest
+  # We're inheriting from SomeClass here
   class MyClass < SomeClass
-    include Foo
+    include SomeModule
 
-    def self.foo
+    # Some languages would call this a "static" method
+    def self.in_eigenclass
       new.foo
     end
 
     class << self
-      def bar
+      # In all ways, this method behaves the same as `in_eigenclass`
+      def in_reopened_eigenclass
         new.bar(true)
       end
     end
 
-    def foo
+    def simple
       self
     end
 
-    def bar(arg1, arg2 = "fine")
+    def optional_param(arg1, arg2 = "fine")
       nil
     end
 
-    def baz(arg1, *args)
+    def splatted_args(arg1, *args)
     end
   end
 end
@@ -83,27 +91,29 @@ SubTest
 Name: MyClass
 Declaration (definition.class):
 class MyClass < SomeClass
-    include Foo
+    include SomeModule
 
-    def self.foo
+    # Some languages would call this a "static" method
+    def self.in_eigenclass
       new.foo
     end
 
     class << self
-      def bar
+      # In all ways, this method behaves the same as `in_eigenclass`
+      def in_reopened_eigenclass
         new.bar(true)
       end
     end
 
-    def foo
+    def simple
       self
     end
 
-    def bar(arg1, arg2 = "fine")
+    def optional_param(arg1, arg2 = "fine")
       nil
     end
 
-    def baz(arg1, *args)
+    def splatted_args(arg1, *args)
     end
   end
 Lineage: [SubTest]
@@ -119,19 +129,19 @@ SomeClass
 
 Name: include
 Reference (reference.call):
-include Foo
+include SomeModule
 
 Name: include
 Reference (reference.call):
 include
 
-Name: Foo
+Name: SomeModule
 Reference (reference.call):
-Foo
+SomeModule
 
-Name: foo
+Name: in_eigenclass
 Reference (reference.call):
-foo
+in_eigenclass
 
 Name: new
 Reference (reference.call):
@@ -145,9 +155,9 @@ Name: foo
 Reference (reference.call):
 foo
 
-Name: bar
+Name: in_reopened_eigenclass
 Reference (reference.call):
-bar
+in_reopened_eigenclass
 
 Name: new
 Reference (reference.call):
@@ -161,13 +171,13 @@ Name: bar
 Reference (reference.call):
 bar
 
-Name: foo
+Name: simple
 Reference (reference.call):
-foo
+simple
 
-Name: bar
+Name: optional_param
 Reference (reference.call):
-bar
+optional_param
 
 Name: arg1
 Reference (reference.call):
@@ -177,18 +187,18 @@ Name: arg2
 Reference (reference.call):
 arg2
 
-Name: bar
+Name: optional_param
 Parameters: (arg1, arg2 = "fine")
 Definition (definition.method):
-def bar(arg1, arg2 = "fine")
+def optional_param(arg1, arg2 = "fine")
       nil
     end
 Lineage: [SubTest MyClass]
 Lineage types: [module class]
 
-Name: baz
+Name: splatted_args
 Reference (reference.call):
-baz
+splatted_args
 
 Name: arg1
 Reference (reference.call):

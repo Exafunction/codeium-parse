@@ -1,40 +1,48 @@
 require "net/http"
 
+# This is just your standard class
+#  nothing strange here
 class SomeClass
-  def nice()
+  # In ruby, the parentheses can be omitted in many circumstances
+  # This is probably a job for the AST, but we'll add a test here anyway
+  def empty_parens()
     "Nice"
   end
 end
 
-module Foo
-  def foo
+module SomeModule
+  def omitted_parens
     :foo
   end
 end
 
+# This module is acting more like a namespace
 module Test::SubTest
+  # We're inheriting from SomeClass here
   class MyClass < SomeClass
-    include Foo
+    include SomeModule
 
-    def self.foo
+    # Some languages would call this a "static" method
+    def self.in_eigenclass
       new.foo
     end
 
     class << self
-      def bar
+      # In all ways, this method behaves the same as `in_eigenclass`
+      def in_reopened_eigenclass
         new.bar(true)
       end
     end
 
-    def foo
+    def simple
       self
     end
 
-    def bar(arg1, arg2 = "fine")
+    def optional_param(arg1, arg2 = "fine")
       nil
     end
 
-    def baz(arg1, *args)
+    def splatted_args(arg1, *args)
     end
   end
 end
