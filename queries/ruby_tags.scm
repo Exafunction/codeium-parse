@@ -8,13 +8,13 @@
       name: (_) @name
       parameters: (method_parameters) @codeium.parameters
       body: (_) @body
-    ) @definition.method
+    )
     (singleton_method
       name: (_) @name
       parameters: (method_parameters) @codeium.parameters
       body: (_) @body
-    ) @definition.method
-  ]
+    )
+  ] @definition.method
   (#select-adjacent! @doc @definition.method)
 )
 

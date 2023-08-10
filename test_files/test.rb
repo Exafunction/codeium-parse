@@ -32,7 +32,7 @@ module Test::SubTest
     class << self
       # In all ways, this method behaves the same as `in_eigenclass`
       def in_reopened_eigenclass
-        new.bar(true)
+        new.optional_param(true)
       end
     end
 
@@ -57,9 +57,15 @@ module Test::SubTest::SubSubTest
   module SubSubSubTest
     extend SomeModule
   end
+
 end
 
 def MyTerribleMethod
 end
 
+
+# Some calls, just to check everything works
 MyTerribleMethod()
+Test::SubTest::MyClass.new.splatted_args 1, 2, 3
+Test::SubTest::MyClass.in_reopened_eigenclass
+Test::SubTest::SubSubTest::SubSubSubTest.omitted_parens
