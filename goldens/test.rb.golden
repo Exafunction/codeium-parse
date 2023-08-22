@@ -45,6 +45,8 @@ Definition (definition.module):
 module Test ; end
 
 Name: SubTest
+Doc:
+# This module is acting more like a namespace
 Definition (definition.module):
 module Test::SubTest
   # We're inheriting from SomeClass here

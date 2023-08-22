@@ -49,6 +49,8 @@
 ; Module definitions
 
 (
+  (comment)* @doc
+  .
   (module
     name: [
       (constant) @name
