@@ -32,6 +32,14 @@ module SomeModule
   end
 end
 
+Name: omitted_parens
+Definition (definition.method):
+def omitted_parens
+    :foo
+  end
+Lineage: [SomeModule]
+Lineage types: [module]
+
 Name: Test
 Definition (definition.module):
 module Test ; end
@@ -111,13 +119,39 @@ Name: include
 Reference (reference.call):
 include SomeModule
 
+Name: in_eigenclass
+Doc:
+# Some languages would call this a "static" method
+Definition (definition.method):
+def self.in_eigenclass
+      new.simple
+    end
+Lineage: [SubTest MyClass]
+Lineage types: [module class]
+
 Name: simple
 Reference (reference.call):
 new.simple
 
+Name: in_reopened_eigenclass
+Definition (definition.method):
+def in_reopened_eigenclass
+        new.optional_param(true)
+      end
+Lineage: [SubTest MyClass]
+Lineage types: [module class]
+
 Name: optional_param
 Reference (reference.call):
 new.optional_param(true)
+
+Name: simple
+Definition (definition.method):
+def simple
+      self
+    end
+Lineage: [SubTest MyClass]
+Lineage types: [module class]
 
 Name: unparenthesized
 Parameters: arg1, arg2

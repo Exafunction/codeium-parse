@@ -6,12 +6,12 @@
   [
     (method
       name: (_) @name
-      parameters: (method_parameters) @codeium.parameters
+      parameters: (method_parameters)? @codeium.parameters
       body: (_) @body
     )
     (singleton_method
       name: (_) @name
-      parameters: (method_parameters) @codeium.parameters
+      parameters: (method_parameters)? @codeium.parameters
       body: (_) @body
     )
   ] @definition.method
