@@ -41,6 +41,7 @@
           name: (_) @name)
       ]) @definition.class
   ]
+  (#lineage-from-name! "::")
   (#select-adjacent! @doc @definition.class)
 )
 
@@ -55,6 +56,8 @@
       (scope_resolution
         name: (_) @name)
     ]) @definition.module
+  (#lineage-from-name! "::")
+  (#select-adjacent! @doc @definition.module)
 )
 
 ; Calls
