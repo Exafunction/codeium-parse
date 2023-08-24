@@ -68,6 +68,8 @@ module Test::SubTest
     def simple
       self
     end
+    alias :not_so_simple :simple
+    alias_method :simple, :really_not_so_simple
 
     def unparenthesized arg1, arg2
       arg2, arg1 = arg1, arg2
@@ -102,6 +104,8 @@ class MyClass < SomeClass
     def simple
       self
     end
+    alias :not_so_simple :simple
+    alias_method :simple, :really_not_so_simple
 
     def unparenthesized arg1, arg2
       arg2, arg1 = arg1, arg2
@@ -155,6 +159,16 @@ def simple
 Lineage: [SubTest MyClass]
 Lineage types: [module class]
 
+Name: :not_so_simple
+Declaration (definition.method):
+alias :not_so_simple :simple
+Lineage: [SubTest MyClass]
+Lineage types: [module class]
+
+Name: alias_method
+Reference (reference.call):
+alias_method :simple, :really_not_so_simple
+
 Name: unparenthesized
 Parameters: arg1, arg2
 Definition (definition.method):
@@ -205,6 +219,14 @@ Test::SubTest::MyClass.new
 Name: splatted_args
 Reference (reference.call):
 Test::SubTest::MyClass.new.splatted_args 1, 2, 3
+
+Name: new
+Reference (reference.call):
+Test::SubTest::MyClass.new
+
+Name: not_so_simple
+Reference (reference.call):
+Test::SubTest::MyClass.new.not_so_simple
 
 Name: in_reopened_eigenclass
 Reference (reference.call):

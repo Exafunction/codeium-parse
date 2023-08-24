@@ -39,6 +39,8 @@ module Test::SubTest
     def simple
       self
     end
+    alias :not_so_simple :simple
+    alias_method :simple, :really_not_so_simple
 
     def unparenthesized arg1, arg2
       arg2, arg1 = arg1, arg2
@@ -67,5 +69,6 @@ end
 # Some calls, just to check everything works
 MyTerribleMethod()
 Test::SubTest::MyClass.new.splatted_args 1, 2, 3
+Test::SubTest::MyClass.new.not_so_simple
 Test::SubTest::MyClass.in_reopened_eigenclass
 Test::SubTest::SubSubTest::SubSubSubTest.omitted_parens
