@@ -27,20 +27,8 @@
 (
   (comment)* @doc
   .
-  [
-    (class
-      name: [
-        (constant) @name
-        (scope_resolution
-          name: (_) @name)
-      ]) @definition.class
-    (singleton_class
-      value: [
-        (constant) @name
-        (scope_resolution
-          name: (_) @name)
-      ]) @definition.class
-  ]
+  (class
+    name: (_) @name) @definition.class
   (#lineage-from-name! "::")
   (#select-adjacent! @doc @definition.class)
 )
@@ -51,11 +39,7 @@
   (comment)* @doc
   .
   (module
-    name: [
-      (constant) @name
-      (scope_resolution
-        name: (_) @name)
-    ]) @definition.module
+    name: (_) @name) @definition.module
   (#lineage-from-name! "::")
   (#select-adjacent! @doc @definition.module)
 )

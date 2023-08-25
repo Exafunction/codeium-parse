@@ -40,7 +40,7 @@ module Test::SubTest
       self
     end
     alias :not_so_simple :simple
-    alias_method :simple, :really_not_so_simple
+    alias_method :really_not_so_simple, :simple
 
     def unparenthesized arg1, arg2
       arg2, arg1 = arg1, arg2
@@ -59,12 +59,10 @@ module Test::SubTest::SubSubTest
   module SubSubSubTest
     extend SomeModule
   end
-
 end
 
 def MyTerribleMethod
 end
-
 
 # Some calls, just to check everything works
 MyTerribleMethod()
