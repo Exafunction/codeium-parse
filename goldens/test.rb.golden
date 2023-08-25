@@ -1,0 +1,240 @@
+Name: require
+Definition (definition.import):
+require "net/http"
+
+Name: SomeClass
+Doc:
+# This is just your standard class
+#  nothing strange here
+Declaration (definition.class):
+class SomeClass
+  # In ruby, the parentheses can be omitted in many circumstances
+  # This is probably a job for the AST, but we'll add a test here anyway
+  def empty_parens()
+    "Nice"
+  end
+end
+
+Name: empty_parens
+Parameters: ()
+Definition (definition.method):
+def empty_parens()
+    "Nice"
+  end
+Lineage: [SomeClass]
+Lineage types: [class]
+
+Name: SomeModule
+Definition (definition.module):
+module SomeModule
+  def omitted_parens
+    :foo
+  end
+end
+
+Name: omitted_parens
+Definition (definition.method):
+def omitted_parens
+    :foo
+  end
+Lineage: [SomeModule]
+Lineage types: [module]
+
+Name: Test
+Definition (definition.module):
+module Test ; end
+
+Name: SubTest
+Doc:
+# This module is acting more like a namespace
+Definition (definition.module):
+module Test::SubTest
+  # We're inheriting from SomeClass here
+  class MyClass < SomeClass
+    include SomeModule
+
+    # Some languages would call this a "static" method
+    def self.in_eigenclass
+      new.simple
+    end
+
+    class << self
+      # In all ways, this method behaves the same as `in_eigenclass`
+      def in_reopened_eigenclass
+        new.optional_param(true)
+      end
+    end
+
+    def simple
+      self
+    end
+    alias :not_so_simple :simple
+    alias_method :really_not_so_simple, :simple
+
+    def unparenthesized arg1, arg2
+      arg2, arg1 = arg1, arg2
+    end
+
+    def optional_param(arg1, arg2 = "fine")
+      nil
+    end
+
+    def splatted_args(arg1, *args)
+    end
+  end
+end
+Lineage: [Test]
+Lineage types: [unknown]
+
+Name: MyClass
+Declaration (definition.class):
+class MyClass < SomeClass
+    include SomeModule
+
+    # Some languages would call this a "static" method
+    def self.in_eigenclass
+      new.simple
+    end
+
+    class << self
+      # In all ways, this method behaves the same as `in_eigenclass`
+      def in_reopened_eigenclass
+        new.optional_param(true)
+      end
+    end
+
+    def simple
+      self
+    end
+    alias :not_so_simple :simple
+    alias_method :really_not_so_simple, :simple
+
+    def unparenthesized arg1, arg2
+      arg2, arg1 = arg1, arg2
+    end
+
+    def optional_param(arg1, arg2 = "fine")
+      nil
+    end
+
+    def splatted_args(arg1, *args)
+    end
+  end
+Lineage: [Test SubTest]
+Lineage types: [unknown module]
+
+Name: include
+Reference (reference.call):
+include SomeModule
+
+Name: in_eigenclass
+Doc:
+# Some languages would call this a "static" method
+Definition (definition.method):
+def self.in_eigenclass
+      new.simple
+    end
+Lineage: [Test SubTest MyClass]
+Lineage types: [unknown module class]
+
+Name: simple
+Reference (reference.call):
+new.simple
+
+Name: in_reopened_eigenclass
+Definition (definition.method):
+def in_reopened_eigenclass
+        new.optional_param(true)
+      end
+Lineage: [Test SubTest MyClass]
+Lineage types: [unknown module class]
+
+Name: optional_param
+Reference (reference.call):
+new.optional_param(true)
+
+Name: simple
+Definition (definition.method):
+def simple
+      self
+    end
+Lineage: [Test SubTest MyClass]
+Lineage types: [unknown module class]
+
+Name: :not_so_simple
+Declaration (definition.method):
+alias :not_so_simple :simple
+Lineage: [Test SubTest MyClass]
+Lineage types: [unknown module class]
+
+Name: alias_method
+Reference (reference.call):
+alias_method :really_not_so_simple, :simple
+
+Name: unparenthesized
+Parameters: arg1, arg2
+Definition (definition.method):
+def unparenthesized arg1, arg2
+      arg2, arg1 = arg1, arg2
+    end
+Lineage: [Test SubTest MyClass]
+Lineage types: [unknown module class]
+
+Name: optional_param
+Parameters: (arg1, arg2 = "fine")
+Definition (definition.method):
+def optional_param(arg1, arg2 = "fine")
+      nil
+    end
+Lineage: [Test SubTest MyClass]
+Lineage types: [unknown module class]
+
+Name: SubSubTest
+Definition (definition.module):
+module Test::SubTest::SubSubTest
+  module SubSubSubTest
+    extend SomeModule
+  end
+end
+Lineage: [Test SubTest]
+Lineage types: [unknown unknown]
+
+Name: SubSubSubTest
+Definition (definition.module):
+module SubSubSubTest
+    extend SomeModule
+  end
+Lineage: [Test SubTest SubSubTest]
+Lineage types: [unknown unknown module]
+
+Name: extend
+Reference (reference.call):
+extend SomeModule
+
+Name: MyTerribleMethod
+Reference (reference.call):
+MyTerribleMethod()
+
+Name: new
+Reference (reference.call):
+Test::SubTest::MyClass.new
+
+Name: splatted_args
+Reference (reference.call):
+Test::SubTest::MyClass.new.splatted_args 1, 2, 3
+
+Name: new
+Reference (reference.call):
+Test::SubTest::MyClass.new
+
+Name: not_so_simple
+Reference (reference.call):
+Test::SubTest::MyClass.new.not_so_simple
+
+Name: in_reopened_eigenclass
+Reference (reference.call):
+Test::SubTest::MyClass.in_reopened_eigenclass
+
+Name: omitted_parens
+Reference (reference.call):
+Test::SubTest::SubSubTest::SubSubSubTest.omitted_parens
