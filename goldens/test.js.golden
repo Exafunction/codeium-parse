@@ -44,6 +44,13 @@ class Pattern1a {
   }
 }
 
+Name: constructor
+Parameters: ()
+Definition (definition.constructor):
+constructor() {}
+Lineage: [Pattern1a]
+Lineage types: [class]
+
 Name: pattern0
 Parameters: (param1)
 Doc:

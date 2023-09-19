@@ -14,6 +14,8 @@ interface FooInterface
 // FooClass.
 class FooClass implements FooInterface
 {
+    // Constructor comment.
+    function __construct() {}
     /**
      * @param mixed $numbers
      * @return string

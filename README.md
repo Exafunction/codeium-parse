@@ -73,22 +73,23 @@ Queries try to follow the [conventions established by tree-sitter.](https://tree
 
 Most captures also include documentation as `@doc`. `@definition.function` and `@definition.method` also capture `@codeium.parameters`.
 
-| Top-level capture       | Python | TypeScript | JavaScript | Go  | Java | C++    | PHP |
-| ----------------------  | ------ | ---------- | ---------- | --- | ---- | ------ | --- |
-| `@definition.class`     | ✅     | ✅         | ✅         | ✅  | ✅   | ✅     | ✅  |
-| `@definition.function`  | ✅     | ✅[^3]     | ✅         | ✅  | N/A  | ✅     | ✅  |
-| `@definition.method`    | ✅[^1] | ✅[^3]     | ✅         | ✅  | ✅   | ✅[^1] | ✅  |
-| `@definition.interface` | N/A    | ✅         | N/A        | ✅  | ✅   | N/A    | ✅  |
-| `@definition.namespace` | N/A    | ✅         | N/A        | N/A | N/A  | ✅     | ✅  |
-| `@definition.module`    | N/A    | ✅         | N/A        | N/A | N/A  | ❌     | N/A |
-| `@definition.type`      | N/A    | ✅         | N/A        | ✅  | N/A  | ❌     | ❌  |
-| `@definition.constant`  | ❌     | ❌         | ❌         | ❌  | ❌   | ❌     | ❌  |
-| `@definition.enum`      | ❌     | ❌         | ❌         | ❌  | ❌   | ❌     | ❌  |
-| `@definition.import`    | ✅     | ✅         | ✅         | ❌  | ❌   | ❌     | N/A |
-| `@definition.include`   | N/A    | N/A        | N/A        | N/A | N/A  | ❌     | ❌  |
-| `@definition.package`   | N/A    | N/A        | N/A        | ✅  | ✅   | N/A    | N/A |
-| `@reference.call`       | ✅     | ✅         | ✅         | ✅  | ❌   | ❌     | ❌  |
-| `@reference.class`      | ✅[^2] | ✅         | ✅         | ✅  | ❌   | ❌     | ❌  |
+| Top-level capture         | Python | TypeScript | JavaScript | Go  | Java | C++    | PHP | Ruby |
+| ------------------------- | ------ | ---------- | ---------- | --- | ---- | ------ | --- | ---- |
+| `@definition.class`       | ✅     | ✅         | ✅         | ✅  | ✅   | ✅     | ✅  | ✅  |
+| `@definition.function`    | ✅     | ✅[^3]     | ✅         | ✅  | N/A  | ✅     | ✅  | N/A |
+| `@definition.method`      | ✅[^1] | ✅[^3]     | ✅         | ✅  | ✅   | ✅[^1] | ✅  | ✅  |
+| `@definition.constructor` | ✅     | ✅         | ✅         | N/A | ❌   | ❌     | ❌  | ❌  |
+| `@definition.interface`   | N/A    | ✅         | N/A        | ✅  | ✅   | N/A    | ✅  | ❌  |
+| `@definition.namespace`   | N/A    | ✅         | N/A        | N/A | N/A  | ✅     | ✅  | N/A |
+| `@definition.module`      | N/A    | ✅         | N/A        | N/A | N/A  | ❌     | N/A | ✅  |
+| `@definition.type`        | N/A    | ✅         | N/A        | ✅  | N/A  | ❌     | ❌  | N/A |
+| `@definition.constant`    | ❌     | ❌         | ❌         | ❌  | ❌   | ❌     | ❌  | ❌  |
+| `@definition.enum`        | ❌     | ❌         | ❌         | ❌  | ❌   | ❌     | ❌  | N/A |
+| `@definition.import`      | ✅     | ✅         | ✅         | ❌  | ❌   | ❌     | N/A | ✅  |
+| `@definition.include`     | N/A    | N/A        | N/A        | N/A | N/A  | ❌     | ❌  | N/A |
+| `@definition.package`     | N/A    | N/A        | N/A        | ✅  | ✅   | N/A    | N/A | N/A |
+| `@reference.call`         | ✅     | ✅         | ✅         | ✅  | ❌   | ❌     | ❌  | ✅ |
+| `@reference.class`        | ✅[^2] | ✅         | ✅         | ✅  | ❌   | ❌     | ❌  | ❌ |
 
 | Language | Supported injections   |
 | -------- | ---------------------- |

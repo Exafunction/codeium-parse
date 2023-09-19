@@ -72,7 +72,8 @@
     (qualified_type
       package: (package_identifier) @parent
       name: (type_identifier) @name)
-  ]) @reference.class
+  ]
+  (literal_value) @codeium.parameters) @reference.class
 
 ;; 6. Pattern 3 from tags.scm.
 ;; Restricted to just type aliases.

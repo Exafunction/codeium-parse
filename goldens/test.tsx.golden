@@ -111,11 +111,22 @@ Doc:
 /** Foo comment. */
 Definition (definition.class):
 class Foo {
+    // Constructor comment.
+    constructor() {}
     /** methodSignature comment. */
     methodSignature(): void;
     /** methodSignature comment. */
     methodSignature(): void {}
 }
+
+Name: constructor
+Parameters: ()
+Doc:
+// Constructor comment.
+Definition (definition.constructor):
+constructor() {}
+Lineage: [Foo]
+Lineage types: [class]
 
 Name: methodSignature
 Parameters: ()

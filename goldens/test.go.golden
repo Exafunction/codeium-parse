@@ -56,7 +56,7 @@ Return type: string
 Definition (definition.method):
 func (p Pattern0) Method2(a string) string {
 	Pattern2()
-	s := &Pattern0{}
+	s := &Pattern0{a: "foo"}
 	s.Method("")
 	((*Pattern0)(s)).Method("")
 	var s2 any
@@ -72,8 +72,9 @@ Reference (reference.call):
 Pattern2()
 
 Name: Pattern0
+Parameters: {a: "foo"}
 Reference (reference.class):
-Pattern0{}
+Pattern0{a: "foo"}
 
 Name: Method
 Parent: s
