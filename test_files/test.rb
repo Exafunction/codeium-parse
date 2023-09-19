@@ -3,6 +3,8 @@ require "net/http"
 # This is just your standard class
 #  nothing strange here
 class SomeClass
+  def initialize
+  end
   # In ruby, the parentheses can be omitted in many circumstances
   # This is probably a job for the AST, but we'll add a test here anyway
   def empty_parens()

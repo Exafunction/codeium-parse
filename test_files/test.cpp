@@ -14,6 +14,10 @@ struct Foo3;
 
 class Foo {
  public:
+  // Constructor comment.
+  Foo() = default;
+  // Constructor comment.
+  explicit Foo(int /*unused*/) {}
   // foo
   // foo2
   void foo() {

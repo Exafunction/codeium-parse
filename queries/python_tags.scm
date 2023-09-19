@@ -40,4 +40,5 @@
       name: (identifier) @name
       parameters: (parameters) @codeium.parameters
       body: (block . (expression_statement . (string) @doc .)?) @body)) @definition.function
+  (#not-eq? @name "__init__")
 )

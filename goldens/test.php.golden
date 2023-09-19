@@ -35,6 +35,8 @@ Doc:
 Definition (definition.class):
 class FooClass implements FooInterface
 {
+    // Constructor comment.
+    function __construct() {}
     /**
      * @param mixed $numbers
      * @return string
@@ -45,6 +47,15 @@ class FooClass implements FooInterface
 }
 Lineage: [test]
 Lineage types: [namespace]
+
+Name: __construct
+Parameters: ()
+Doc:
+// Constructor comment.
+Definition (definition.method):
+function __construct() {}
+Lineage: [test FooClass]
+Lineage types: [namespace class]
 
 Name: encode
 Parameters: (...$numbers)

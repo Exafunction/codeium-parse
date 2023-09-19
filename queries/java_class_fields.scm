@@ -7,7 +7,7 @@
     (class_body
         ([
             (constructor_declaration)
-        ]) @codeium.constructor
+        ]) @definition.constructor
     )
 )
 
@@ -21,6 +21,6 @@
         ([
             (constructor_declaration)
             (compact_constructor_declaration)
-        ]) @codeium.constructor
+        ]) @definition.constructor
     )
 )

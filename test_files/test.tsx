@@ -24,6 +24,8 @@ export declare function f4(): void;
 
 /** Foo comment. */
 class Foo {
+    // Constructor comment.
+    constructor() {}
     /** methodSignature comment. */
     methodSignature(): void;
     /** methodSignature comment. */

@@ -8,6 +8,8 @@ from foo import pattern2b
 
 class Pattern0:
     """Pattern 0 docstring."""
+    def __init__(self):
+        pass
 
 class Pattern0NoDoc:
     def pattern1(self):

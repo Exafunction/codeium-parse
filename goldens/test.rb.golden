@@ -8,6 +8,8 @@ Doc:
 #  nothing strange here
 Declaration (definition.class):
 class SomeClass
+  def initialize
+  end
   # In ruby, the parentheses can be omitted in many circumstances
   # This is probably a job for the AST, but we'll add a test here anyway
   def empty_parens()
@@ -17,6 +19,9 @@ end
 
 Name: empty_parens
 Parameters: ()
+Doc:
+# In ruby, the parentheses can be omitted in many circumstances
+# This is probably a job for the AST, but we'll add a test here anyway
 Definition (definition.method):
 def empty_parens()
     "Nice"

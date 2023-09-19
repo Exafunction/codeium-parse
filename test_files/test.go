@@ -25,7 +25,7 @@ func (p *Pattern0) Method(string) {}
 
 func (p Pattern0) Method2(a string) string {
 	Pattern2()
-	s := &Pattern0{}
+	s := &Pattern0{a: "foo"}
 	s.Method("")
 	((*Pattern0)(s)).Method("")
 	var s2 any

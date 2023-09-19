@@ -32,6 +32,16 @@ Doc:
 Definition (definition.class):
 class Pattern0:
     """Pattern 0 docstring."""
+    def __init__(self):
+        pass
+
+Name: __init__
+Parameters: (self)
+Definition (definition.constructor):
+def __init__(self):
+        pass
+Lineage: [Pattern0]
+Lineage types: [class]
 
 Name: Pattern0NoDoc
 Definition (definition.class):
