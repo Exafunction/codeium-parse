@@ -1,0 +1,138 @@
+Name: Namespace
+Definition (definition.namespace):
+namespace Namespace {
+  // Comment A.
+  internal delegate void A(params int[] test);
+  // Comment F.
+  public struct F<T>
+      where T : struct {
+  }
+  // Comment F.
+  [Nice]
+  private record F<T1, T2>
+      where T1 : I1, I2, new()
+      where T2 : I2 {}
+  // Comment Teacher.
+  record Teacher(string FirstName, string LastName, string Subject) : Person(FirstName, LastName);
+  // Comment B.
+  enum B { Ten = 10, Twenty = 20 }
+  // Comment F.
+  public class F : object, IAlpha, IOmega {}
+  // Comment Class.
+  public partial class Class<in TParam>
+      where TParam : class ?, notnull, F ? {
+    // Comment operator +.
+    public static int operator +(A a) {
+      return 0;
+    }
+    // Comment GetSet.
+    uint GetSet { get; set; }
+    // Comment Foo.
+    static extern Foo() => bar = 0;
+    // Comment ~Class.
+    extern ~Class() {}
+    // Comment Bar
+    public void Bar() => bar = 0;
+  }
+}
+
+Name: F
+Doc:
+// Comment F.
+Definition (definition.class):
+public struct F<T>
+      where T : struct {
+  }
+Lineage: [Namespace]
+Lineage types: [namespace]
+
+Name: F
+Doc:
+// Comment F.
+Definition (definition.class):
+[Nice]
+  private record F<T1, T2>
+      where T1 : I1, I2, new()
+      where T2 : I2 {}
+Lineage: [Namespace]
+Lineage types: [namespace]
+
+Name: Teacher
+Doc:
+// Comment Teacher.
+Declaration (definition.class):
+record Teacher(string FirstName, string LastName, string Subject) : Person(FirstName, LastName);
+Lineage: [Namespace]
+Lineage types: [namespace]
+
+Name: B
+Doc:
+// Comment B.
+Definition (definition.enum):
+enum B { Ten = 10, Twenty = 20 }
+Lineage: [Namespace]
+Lineage types: [namespace]
+
+Name: F
+Doc:
+// Comment F.
+Definition (definition.class):
+public class F : object, IAlpha, IOmega {}
+Lineage: [Namespace]
+Lineage types: [namespace]
+
+Name: Class
+Doc:
+// Comment Class.
+Definition (definition.class):
+public partial class Class<in TParam>
+      where TParam : class ?, notnull, F ? {
+    // Comment operator +.
+    public static int operator +(A a) {
+      return 0;
+    }
+    // Comment GetSet.
+    uint GetSet { get; set; }
+    // Comment Foo.
+    static extern Foo() => bar = 0;
+    // Comment ~Class.
+    extern ~Class() {}
+    // Comment Bar
+    public void Bar() => bar = 0;
+  }
+Lineage: [Namespace]
+Lineage types: [namespace]
+
+Name: +
+Doc:
+// Comment operator +.
+Definition (definition.method):
+public static int operator +(A a) {
+      return 0;
+    }
+Lineage: [Namespace Class]
+Lineage types: [namespace class]
+
+Name: Foo
+Doc:
+// Comment Foo.
+Definition (definition.constructor):
+static extern Foo() => bar = 0;
+Lineage: [Namespace Class]
+Lineage types: [namespace class]
+
+Name: Class
+Doc:
+// Comment ~Class.
+Definition (definition.destructor):
+extern ~Class() {}
+Lineage: [Namespace Class]
+Lineage types: [namespace class]
+
+Name: Bar
+Doc:
+// Comment Bar
+Definition (definition.method):
+public void Bar() => bar = 0;
+Lineage: [Namespace Class]
+Lineage types: [namespace class]
