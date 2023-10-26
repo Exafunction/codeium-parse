@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -euxo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 for test_file in test_files/*; do
