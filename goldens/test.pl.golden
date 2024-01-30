@@ -1,0 +1,62 @@
+Name: strict
+Definition (definition.import):
+use strict 1.0;
+
+Name: feature
+Definition (definition.import):
+use feature 'class';
+
+Name: FooClass
+Definition (definition.class):
+class FooClass {
+    field $someField = 42;
+
+    method bar {
+        say "The answer is $someField";
+    }
+}
+
+Name: bar
+Definition (definition.function):
+method bar {
+        say "The answer is $someField";
+    }
+Lineage: [FooClass]
+Lineage types: [class]
+
+Name: foo2
+Parameters: ()
+Doc:
+# foo2 comment
+Definition (definition.function):
+sub foo2 () {
+    my $foo = Foo.new;
+    $foo.bar
+}
+
+Name: new
+Parameters: ($class, $firstName, $lastName)
+Definition (definition.function):
+sub new ($class, $firstName, $lastName) {
+    bless { firstName => $firstName, lastName => $lastName }, $class
+}
+
+Name: getFirstName
+Parameters: ($self)
+Definition (definition.function):
+sub getFirstName($self) {
+    $self->{firstName}
+}
+
+Name: Average
+Definition (definition.function):
+sub Average {
+   # get total number of arguments passed.
+   $n = scalar(@_);
+   $sum = 0;
+   foreach $item (@_) {
+      $sum += $item;
+   }
+   $average = $sum / $n;
+   return $average;
+}
