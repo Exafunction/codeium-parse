@@ -15,7 +15,7 @@
   (comment)* @doc
   .
   (_
-    (_type_specifier) @codeium.return_type
+    type: (_)? @codeium.return_type
     declarator: [
       (function_declarator
         declarator: (_) @name
@@ -64,7 +64,7 @@
   .
   (template_declaration
     (_
-      (_type_specifier) @codeium.return_type
+      type: (_)? @codeium.return_type
       declarator: [
         (function_declarator
           declarator: (_) @name
@@ -110,7 +110,7 @@
   (template_declaration
     (template_declaration
       (_
-        (_type_specifier) @codeium.return_type
+        type: (_)? @codeium.return_type
         declarator: [
           (function_declarator
             declarator: (_) @name

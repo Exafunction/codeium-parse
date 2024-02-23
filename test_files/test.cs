@@ -1,3 +1,4 @@
+// clang-format off
 namespace Namespace {
   // Comment A.
   internal delegate void A(params int[] test);
@@ -32,4 +33,7 @@ namespace Namespace {
     // Comment Bar
     public void Bar() => bar = 0;
   }
+  // Comment IFoo.
+  public interface IFoo {}
 }
+// clang-format on
