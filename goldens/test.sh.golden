@@ -1,0 +1,16 @@
+Name: do_something
+Definition (definition.function):
+do_something() {
+  echo ok
+}
+
+Name: do_nothing
+Definition (definition.function):
+do_nothing() { return 0; }
+
+Name: add
+Definition (definition.function):
+add() {
+  sum=$(($1 + $2))
+  echo $sum
+}

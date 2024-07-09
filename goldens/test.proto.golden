@@ -1,0 +1,39 @@
+Name: b
+Definition (definition.package):
+package a.b;
+Lineage: [a]
+Lineage types: [package]
+
+Name: TestService
+Declaration (definition.class):
+service TestService {
+  rpc Echo(EchoRequest) returns (EchoResponse) {}
+}
+Lineage: [a b]
+Lineage types: [package package]
+
+Name: Echo
+Declaration (definition.function):
+rpc Echo(EchoRequest) returns (EchoResponse) {}
+Lineage: [a b TestService]
+Lineage types: [package package class]
+
+Name: EchoRequest
+Doc:
+// EchoRequest comment.
+Definition (definition.class):
+message EchoRequest {
+  string message = 1;
+}
+Lineage: [a b]
+Lineage types: [package package]
+
+Name: EchoResponse
+Doc:
+// EchoResponse comment.
+Definition (definition.class):
+message EchoResponse {
+  string message = 1;
+}
+Lineage: [a b]
+Lineage types: [package package]

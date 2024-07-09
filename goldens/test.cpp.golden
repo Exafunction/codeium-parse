@@ -41,6 +41,24 @@ class Foo {
   }
 }
 
+Name: Foo
+Parameters: ()
+Doc:
+// Constructor comment.
+Declaration (definition.function):
+Foo() = default;
+Lineage: [Foo]
+Lineage types: [class]
+
+Name: Foo
+Parameters: (int /*unused*/)
+Doc:
+// Constructor comment.
+Definition (definition.function):
+explicit Foo(int /*unused*/) {}
+Lineage: [Foo]
+Lineage types: [class]
+
 Name: foo
 Parameters: ()
 Return type: void

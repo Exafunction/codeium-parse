@@ -1,0 +1,55 @@
+Name: kotlinx.coroutines
+Named imports:
+    kotlinx.coroutines
+
+Name: kotlinx.coroutines.sync
+Named imports:
+    kotlinx.coroutines.sync
+
+Name: Foo
+Definition (definition.class):
+class Foo(param1: Int, param2: Int) {
+  /**
+   * Constructor docstring
+   *
+   * @param param1
+   * @param param2
+   */
+  constructor(param1: Int, param2: Int) {}
+
+  /** Method docstring */
+  fun methodWithDocstring(): void {}
+}
+
+Name: constructor
+Parameters: (param1: Int, param2: Int)
+Doc:
+/**
+   * Constructor docstring
+   *
+   * @param param1
+   * @param param2
+   */
+Declaration (definition.constructor):
+constructor(param1: Int, param2: Int) {}
+Lineage: [Foo]
+Lineage types: [class]
+
+Name: methodWithDocstring
+Parameters: ()
+Doc:
+/** Method docstring */
+Definition (definition.function):
+fun methodWithDocstring(): void {}
+Lineage: [Foo]
+Lineage types: [class]
+
+Name: fib
+Parameters: (n: Int)
+Definition (definition.function):
+fun fib(n: Int): Int {
+  if (n == 0 || n == 1) {
+    return n
+  }
+  return fib(n - 1) + fib(n - 2)
+}

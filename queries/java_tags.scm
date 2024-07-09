@@ -36,7 +36,6 @@
   (#select-adjacent! @doc @definition.class)
 )
 
-
 (
   [
     (line_comment)
