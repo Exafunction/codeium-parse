@@ -1,0 +1,71 @@
+Name: foo
+Parameters: ()
+Definition (definition.function):
+void foo()
+
+Name: bar
+Parameters: ()
+Doc:
+/// bar is a docstring
+Definition (definition.function):
+int bar()
+
+Name: fooClassBar
+Parameters: ()
+Doc:
+/// FCB docstring
+Definition (definition.function):
+int fooClassBar()
+Lineage: [FooClass]
+Lineage types: [class]
+
+Name: FooClass
+Definition (definition.class):
+class FooClass {
+    int someField = 0;
+
+    // Constructor
+    FooClass() {
+        this.someField = 0;
+    }
+
+    /// FCB docstring
+    int fooClassBar() {
+        return 0;
+    }
+}
+
+Name: FooMixin
+Definition (definition.class):
+mixin FooMixin {
+    int barMixin() {
+        return 0;
+    }
+}
+
+Name: barMixin
+Parameters: ()
+Definition (definition.function):
+int barMixin()
+Lineage: [FooMixin]
+Lineage types: [class]
+
+Name: bar
+Parameters: ()
+Definition (definition.function):
+int bar()
+Lineage: [FooBar]
+Lineage types: [class]
+
+Name: FooBar
+Definition (definition.class):
+class FooBar extends FooClass with Foo {
+    int bar() {
+        return 0;
+    }
+}
+
+Name: main
+Parameters: ()
+Definition (definition.function):
+void main()

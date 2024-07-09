@@ -1,0 +1,19 @@
+// Copyright Exafunction, Inc.
+
+syntax = "proto3";
+
+package a.b;
+
+service TestService {
+  rpc Echo(EchoRequest) returns (EchoResponse) {}
+}
+
+// EchoRequest comment.
+message EchoRequest {
+  string message = 1;
+}
+
+// EchoResponse comment.
+message EchoResponse {
+  string message = 1;
+}

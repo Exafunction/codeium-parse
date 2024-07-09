@@ -34,6 +34,8 @@ namespace Namespace {
     // Comment Bar
     public void Bar() => bar = 0;
   }
+  // Comment IFoo.
+  public interface IFoo {}
 }
 
 Name: F
@@ -136,3 +138,11 @@ Definition (definition.method):
 public void Bar() => bar = 0;
 Lineage: [Namespace Class]
 Lineage types: [namespace class]
+
+Name: IFoo
+Doc:
+// Comment IFoo.
+Definition (definition.interface):
+public interface IFoo {}
+Lineage: [Namespace]
+Lineage types: [namespace]
