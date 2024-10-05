@@ -7,9 +7,9 @@
   ]* @doc
   .
   (function_declaration
-    name: (simple_identifier) @name
-    parameters: (function_value_parameters) @codeium.parameters
-    body: (function_body)? @body
+    (simple_identifier) @name
+    (function_value_parameters) @codeium.parameters
+    (function_body)? @body
   ) @definition.function
   (#select-adjacent! @doc @definition.function)
 )
@@ -24,7 +24,7 @@
   .
   (secondary_constructor
     "constructor" @name
-    parameters: (function_value_parameters) @codeium.parameters
+    (function_value_parameters) @codeium.parameters
   ) @definition.constructor
   (#select-adjacent! @doc @definition.constructor)
 )
@@ -38,8 +38,8 @@
   ]* @doc
   .
   (class_declaration
-    name: (type_identifier) @name
-    body: (class_body)? @body
+    (type_identifier) @name
+    (class_body)? @body
   ) @definition.class
   (#select-adjacent! @doc @definition.class)
 )

@@ -3,7 +3,6 @@ Definition (definition.import):
 #include "runtime/parser.h"
 
 
-
 Name: parser__push
 Parameters: (Parser* self, StackVersion version, Tree* tree,
                          TSStateId state)

@@ -6,7 +6,7 @@
     parameters: (formal_parameters) @codeium.parameters
     return_type: ([
       (type_annotation (_) @codeium.return_type)
-      (asserts (_) @codeium.return_type)
+      (asserts_annotation (_) @codeium.return_type)
       (type_predicate_annotation (_) @codeium.return_type)
     ])?
     body: (_)? @body) @definition.constructor

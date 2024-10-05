@@ -56,7 +56,7 @@
         (arrow_function
           parameters: (formal_parameters) @codeium.parameters
           body: (_) @body)
-        (function
+        (function_expression
           parameters: (formal_parameters) @codeium.parameters
           body: (_) @body)
       ])) @definition.function
@@ -75,7 +75,7 @@
           (arrow_function
             parameters: (formal_parameters) @codeium.parameters
             body: (_) @body)
-          (function
+          (function_expression
             parameters: (formal_parameters) @codeium.parameters
             body: (_) @body)
         ])) @_) @definition.function
@@ -99,7 +99,7 @@
         (arrow_function
           parameters: (formal_parameters) @codeium.parameters
           body: (_) @body)
-        (function
+        (function_expression
           parameters: (formal_parameters) @codeium.parameters
           body: (_) @body)
       ]
@@ -117,7 +117,7 @@
       (arrow_function
         parameters: (formal_parameters) @codeium.parameters
         body: (_) @body)
-      (function
+      (function_expression
         parameters: (formal_parameters) @codeium.parameters
         body: (_) @body)
     ]) @definition.function

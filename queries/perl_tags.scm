@@ -14,11 +14,17 @@
   [
     (subroutine_declaration_statement
       name: (bareword) @name
-      (prototype_or_signature)? @codeium.parameters
+      [
+        (prototype)
+        (signature)
+      ]? @codeium.parameters
       body: (block) @body) @definition.function
     (method_declaration_statement
       name: (bareword) @name
-      (prototype_or_signature)? @codeium.parameters
+      [
+        (prototype)
+        (signature)
+      ]? @codeium.parameters
       body: (block) @body) @definition.function
   ]
   (#select-adjacent! @doc @definition.function)
