@@ -88,7 +88,7 @@
 (
   (comment)* @doc
   .
-  (method_spec
+  (method_elem
     name: (field_identifier) @name
     parameters: (parameter_list) @codeium.parameters
     result: _? @codeium.return_type

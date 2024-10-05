@@ -7,7 +7,7 @@
     parameters: (formal_parameters) @codeium.parameters
     return_type: ([
       (type_annotation (_) @codeium.return_type)
-      (asserts (_) @codeium.return_type)
+      (asserts_annotation (_) @codeium.return_type)
       (type_predicate_annotation (_) @codeium.return_type)
     ])?
     body: (_)? @body) @definition.method
@@ -25,7 +25,7 @@
     parameters: (formal_parameters) @codeium.parameters
     return_type: ([
       (type_annotation (_) @codeium.return_type)
-      (asserts (_) @codeium.return_type)
+      (asserts_annotation (_) @codeium.return_type)
       (type_predicate_annotation (_) @codeium.return_type)
     ])?
     body: (_)? @body) @definition.function
@@ -42,7 +42,7 @@
       parameters: (formal_parameters) @codeium.parameters
       return_type: ([
       (type_annotation (_) @codeium.return_type)
-      (asserts (_) @codeium.return_type)
+      (asserts_annotation (_) @codeium.return_type)
       (type_predicate_annotation (_) @codeium.return_type)
     ])?
     body: (_)? @body) @_) @definition.function
@@ -63,15 +63,15 @@
           parameters: (formal_parameters) @codeium.parameters
           return_type: ([
             (type_annotation (_) @codeium.return_type)
-            (asserts (_) @codeium.return_type)
+            (asserts_annotation (_) @codeium.return_type)
             (type_predicate_annotation (_) @codeium.return_type)
           ])?
           body: (_)? @body)
-        (function
+        (function_expression
           parameters: (formal_parameters) @codeium.parameters
           return_type: ([
             (type_annotation (_) @codeium.return_type)
-            (asserts (_) @codeium.return_type)
+            (asserts_annotation (_) @codeium.return_type)
             (type_predicate_annotation (_) @codeium.return_type)
           ])?
           body: (_)? @body)
@@ -92,15 +92,15 @@
             parameters: (formal_parameters) @codeium.parameters
             return_type: ([
               (type_annotation (_) @codeium.return_type)
-              (asserts (_) @codeium.return_type)
+              (asserts_annotation (_) @codeium.return_type)
               (type_predicate_annotation (_) @codeium.return_type)
             ])?
             body: (_)? @body)
-          (function
+          (function_expression
             parameters: (formal_parameters) @codeium.parameters
             return_type: ([
               (type_annotation (_) @codeium.return_type)
-              (asserts (_) @codeium.return_type)
+              (asserts_annotation (_) @codeium.return_type)
               (type_predicate_annotation (_) @codeium.return_type)
             ])?
             body: (_)? @body)
@@ -126,15 +126,15 @@
           parameters: (formal_parameters) @codeium.parameters
           return_type: ([
             (type_annotation (_) @codeium.return_type)
-            (asserts (_) @codeium.return_type)
+            (asserts_annotation (_) @codeium.return_type)
             (type_predicate_annotation (_) @codeium.return_type)
           ])?
           body: (_)? @body)
-        (function
+        (function_expression
           parameters: (formal_parameters) @codeium.parameters
           return_type: ([
             (type_annotation (_) @codeium.return_type)
-            (asserts (_) @codeium.return_type)
+            (asserts_annotation (_) @codeium.return_type)
             (type_predicate_annotation (_) @codeium.return_type)
           ])?
           body: (_)? @body)
@@ -154,15 +154,15 @@
         parameters: (formal_parameters) @codeium.parameters
         return_type: ([
           (type_annotation (_) @codeium.return_type)
-          (asserts (_) @codeium.return_type)
+          (asserts_annotation (_) @codeium.return_type)
           (type_predicate_annotation (_) @codeium.return_type)
         ])?
         body: (_)? @body)
-      (function
+      (function_expression
         parameters: (formal_parameters) @codeium.parameters
         return_type: ([
           (type_annotation (_) @codeium.return_type)
-          (asserts (_) @codeium.return_type)
+          (asserts_annotation (_) @codeium.return_type)
           (type_predicate_annotation (_) @codeium.return_type)
         ])?
         body: (_)? @body)
@@ -181,7 +181,7 @@
       parameters: (formal_parameters) @codeium.parameters
       return_type: ([
         (type_annotation (_) @codeium.return_type)
-        (asserts (_) @codeium.return_type)
+        (asserts_annotation (_) @codeium.return_type)
         (type_predicate_annotation (_) @codeium.return_type)
       ])?
       body: (_)? @body)) @definition.function
@@ -198,7 +198,7 @@
         parameters: (formal_parameters) @codeium.parameters
         return_type: ([
           (type_annotation (_) @codeium.return_type)
-          (asserts (_) @codeium.return_type)
+          (asserts_annotation (_) @codeium.return_type)
           (type_predicate_annotation (_) @codeium.return_type)
         ])?
         body: (_)? @body))) @definition.function

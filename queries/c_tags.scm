@@ -10,7 +10,7 @@
     )
     body: (_)? @body
   ) @definition.function
-  (select-adjacent! @doc @definition.function)
+  (#select-adjacent! @doc @definition.function)
 )
 
 ;; Function to pointer
@@ -27,7 +27,7 @@
     )
     body: (_)? @body
   ) @definition.function
-  (select-adjacent! @doc @definition.function)
+  (#select-adjacent! @doc @definition.function)
 )
 
 ;; Imports
